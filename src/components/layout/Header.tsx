@@ -14,8 +14,8 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Se rolou mais de 40px, ativa o fundo sólido do menu
-      if (window.scrollY > 40) {
+      // Se rolou mais de 30px, ativa o fundo branco do menu
+      if (window.scrollY > 30) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -30,13 +30,13 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 dark:bg-[#07080b]/95 backdrop-blur-md border-b border-gray-200/80 dark:border-slate-800/80 shadow-sm"
+          ? "bg-white border-b border-gray-200 shadow-md"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* LOGO OFICIAL TRANSPARENTE - CLICÁVEL PARA A HOME */}
+        {/* LOGO OFICIAL - IMAGEM PRESERVADA */}
         <Link
           href="/"
           className="flex items-center group focus:outline-none transition-transform hover:opacity-90"
@@ -54,48 +54,48 @@ export function Header() {
           </div>
         </Link>
 
-        {/* NAVEGAÇÃO DESKTOP: TEXTO COM ALTO CONTRASTE QUANDO O MENU FOR TRANSPARENTE SOBRE A FOTO */}
+        {/* NAVEGAÇÃO: CORRIGIDA PARA MODO ROLADO COM FUNDO BRANCO E TOPO SOBRE A FOTO */}
         <nav
           className={`hidden md:flex items-center gap-8 text-xs sm:text-sm font-semibold transition-colors ${
             isScrolled
-              ? "text-slate-700 dark:text-slate-300"
+              ? "text-slate-800"
               : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           }`}
         >
           <Link
             href="/#escritorio"
-            className="hover:text-[#a37a44] dark:hover:text-[#dfcaa8] transition-colors"
+            className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
           >
             O Escritório
           </Link>
           <Link
             href="/#especialidades"
-            className="hover:text-[#a37a44] dark:hover:text-[#dfcaa8] transition-colors"
+            className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
           >
             Atuação
           </Link>
           <Link
             href="/#orientacao"
-            className="text-[#dfcaa8] hover:text-white transition-colors"
+            className={isScrolled ? "text-[#a37a44] hover:opacity-80 transition-opacity" : "text-[#dfcaa8] hover:text-white transition-colors"}
           >
             Orientação Confidencial
           </Link>
           <Link
             href="/#contato"
-            className="hover:text-[#a37a44] dark:hover:text-[#dfcaa8] transition-colors"
+            className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
           >
             Contato
           </Link>
         </nav>
 
-        {/* AÇÕES NO TOPO */}
+        {/* AÇÕES NO TOPO: TEMA E BOTÃO DE WHATSAPP */}
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
           <a
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] text-white font-bold text-xs sm:text-sm hover:bg-[#20ba59] active:scale-95 transition-all shadow-xl whatsapp-glow"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] text-white font-bold text-xs sm:text-sm hover:bg-[#20ba59] active:scale-95 transition-all shadow-lg whatsapp-glow"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Falar no WhatsApp</span>
@@ -118,8 +118,8 @@ export function Header() {
             onClick={() => setIsOpen(!isOpen)}
             className={`p-2 rounded-lg border transition-colors ${
               isScrolled
-                ? "border-gray-200 dark:border-slate-800 text-slate-800 dark:text-slate-200"
-                : "border-white/30 text-white bg-black/30 backdrop-blur-sm"
+                ? "border-gray-200 text-slate-800 bg-white"
+                : "border-white/30 text-white bg-black/40 backdrop-blur-sm"
             }`}
             aria-label={isOpen ? "Fechar Menu" : "Abrir Menu"}
             aria-expanded={isOpen}
@@ -129,34 +129,34 @@ export function Header() {
         </div>
       </div>
 
-      {/* MENU MOBILE EXPANDIDO */}
+      {/* MENU MOBILE EXPANDIDO - FUNDO BRANCO FIXO */}
       {isOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-[#07080b]/95 backdrop-blur-xl border-b border-gray-200 dark:border-slate-800 px-6 py-6 space-y-4 animate-fade-in shadow-2xl">
+        <div className="md:hidden bg-white border-b border-gray-200 px-6 py-6 space-y-4 animate-fade-in shadow-2xl">
           <Link
             href="/#escritorio"
             onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 dark:text-white hover:text-[#a37a44]"
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
           >
             O Escritório
           </Link>
           <Link
             href="/#especialidades"
             onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 dark:text-white hover:text-[#a37a44]"
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
           >
             Atuação
           </Link>
           <Link
             href="/#orientacao"
             onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-[#a37a44] dark:text-[#dfcaa8]"
+            className="block text-sm font-semibold text-[#a37a44]"
           >
             Orientação Confidencial
           </Link>
           <Link
             href="/#contato"
             onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 dark:text-white hover:text-[#a37a44]"
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
           >
             Contato
           </Link>
