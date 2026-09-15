@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { company } from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -10,62 +11,70 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-[#08090c]/85 backdrop-blur-md border-b border-[#1f2533]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Marca / Identidade */}
-        <Link href="/" className="flex items-center gap-3 group focus:outline-none">
-          <div className="w-10 h-10 rounded-xl bg-[#c5a880]/15 border border-[#c5a880]/40 flex items-center justify-center text-[#dfcaa8] font-serif font-bold text-xl group-hover:scale-105 group-hover:border-[#c5a880] transition-all">
-            C
+    <header className="fixed top-0 left-0 right-0 z-40 bg-[#08090c]/90 backdrop-blur-md border-b border-[#1f2533]/80">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        {/* LOGO OFICIAL COM LINK PARA PÁGINA INICIAL */}
+        <Link
+          href="/"
+          className="flex items-center gap-3 group focus:outline-none transition-transform hover:opacity-90"
+          aria-label="Ir para a página inicial - Corrêa Advocacia Especializada"
+        >
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14">
+            <Image
+              src="/images/logo-transparent.png"
+              alt="Logo Corrêa Advocacia Especializada"
+              fill
+              priority
+              sizes="56px"
+              className="object-contain filter brightness-110 drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
-          <div>
-            <span className="block text-base sm:text-lg font-serif font-bold text-[#f4f5f7] leading-tight group-hover:text-[#dfcaa8] transition-colors">
+          <div className="hidden sm:block">
+            <span className="block text-base font-serif font-bold text-[#f4f5f7] tracking-tight leading-none">
               {company.shortName}
             </span>
-            <span className="block text-[10px] sm:text-xs text-[#9ca3af] uppercase tracking-wider">
+            <span className="block text-[10px] font-mono tracking-widest text-[#dfcaa8] uppercase mt-1">
               Advocacia Especializada
             </span>
           </div>
         </Link>
 
-        {/* Navegação Desktop */}
-        <nav className="hidden md:flex items-center gap-8 text-sm text-[#9ca3af]">
+        {/* NAVEGAÇÃO MINIMALISTA & DIRETA */}
+        <nav className="hidden md:flex items-center gap-8 text-xs sm:text-sm font-medium text-[#9ca3af]">
+          <Link href="/#escritorio" className="hover:text-[#dfcaa8] transition-colors">
+            O Escritório
+          </Link>
           <Link href="/#especialidades" className="hover:text-[#dfcaa8] transition-colors">
-            Especialidades
+            Atuação
           </Link>
-          <Link href="/#sobre" className="hover:text-[#dfcaa8] transition-colors">
-            Sobre o Advogado
-          </Link>
-          <Link href="/#orientacao" className="text-[#dfcaa8] font-medium hover:text-white transition-colors">
+          <Link href="/#orientacao" className="text-[#dfcaa8] hover:text-white transition-colors">
             Orientação Confidencial
           </Link>
-          <Link href="/#faq" className="hover:text-[#dfcaa8] transition-colors">
-            Dúvidas Frequentes
-          </Link>
           <Link href="/#localizacao" className="hover:text-[#dfcaa8] transition-colors">
-            Localização & Rotas
+            Batel / Rotas
           </Link>
         </nav>
 
-        {/* CTA Principal WhatsApp (Desktop) */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* CTA WHATSAPP MINIMALISTA & ELEGANTE */}
+        <div className="hidden md:flex items-center">
           <a
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#25D366] text-white font-semibold text-xs sm:text-sm hover:bg-[#20ba59] active:scale-95 transition-all whatsapp-glow"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] text-white font-semibold text-xs sm:text-sm hover:bg-[#20ba59] active:scale-95 transition-all shadow-lg whatsapp-glow"
           >
             <MessageCircle className="w-4 h-4" />
-            Orientação no WhatsApp
+            <span>Falar no WhatsApp</span>
           </a>
         </div>
 
-        {/* Menu Mobile Hamburger */}
+        {/* MOBILE ACTIONS */}
         <div className="flex md:hidden items-center gap-2">
           <a
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg bg-[#25D366] text-white"
+            className="p-2 rounded-full bg-[#25D366] text-white shadow-md"
             aria-label="Falar no WhatsApp"
           >
             <MessageCircle className="w-5 h-5" />
@@ -81,48 +90,41 @@ export function Header() {
         </div>
       </div>
 
-      {/* Menu Mobile Dropdown */}
+      {/* MENU MOBILE MINIMALISTA */}
       {isOpen && (
-        <div className="md:hidden bg-[#0f1218] border-b border-[#1f2533] px-4 pt-4 pb-6 space-y-3 animate-fade-in">
+        <div className="md:hidden bg-[#08090c] border-b border-[#1f2533] px-6 py-6 space-y-4 animate-fade-in">
+          <Link
+            href="/#escritorio"
+            onClick={() => setIsOpen(false)}
+            className="block text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
+          >
+            O Escritório
+          </Link>
           <Link
             href="/#especialidades"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
+            className="block text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
           >
-            Especialidades
-          </Link>
-          <Link
-            href="/#sobre"
-            onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
-          >
-            Sobre o Advogado
+            Atuação em Direito Trabalhista
           </Link>
           <Link
             href="/#orientacao"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm text-[#dfcaa8] font-medium"
+            className="block text-sm text-[#dfcaa8] font-medium"
           >
             Orientação Confidencial
           </Link>
           <Link
-            href="/#faq"
-            onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
-          >
-            Dúvidas Frequentes
-          </Link>
-          <Link
             href="/#localizacao"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
+            className="block text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
           >
-            Localização & Rotas
+            Localização & Rotas no Batel
           </Link>
           <Link
             href="/links"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm text-[#c5a880] font-medium"
+            className="block text-sm text-[#c5a880] font-medium"
           >
             Canais de Atendimento (Bio)
           </Link>
@@ -134,7 +136,7 @@ export function Header() {
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm shadow-lg"
             >
               <MessageCircle className="w-4 h-4" />
-              Falar com Dr. Marcelo no WhatsApp
+              <span>Falar com Dr. Marcelo</span>
             </a>
           </div>
         </div>
