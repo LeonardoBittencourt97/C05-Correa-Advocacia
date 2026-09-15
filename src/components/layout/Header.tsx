@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MessageCircle, Menu, X, Shield } from "lucide-react";
+import { MessageCircle, Menu, X } from "lucide-react";
 import { company } from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -14,11 +14,11 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Marca / Identidade */}
         <Link href="/" className="flex items-center gap-3 group focus:outline-none">
-          <div className="w-10 h-10 rounded-xl bg-[#c5a880]/15 border border-[#c5a880]/40 flex items-center justify-center text-[#dfcaa8] font-serif font-bold text-xl group-hover:scale-105 transition-all">
+          <div className="w-10 h-10 rounded-xl bg-[#c5a880]/15 border border-[#c5a880]/40 flex items-center justify-center text-[#dfcaa8] font-serif font-bold text-xl group-hover:scale-105 group-hover:border-[#c5a880] transition-all">
             C
           </div>
           <div>
-            <span className="block text-base sm:text-lg font-serif font-bold text-[#f4f5f7] leading-tight">
+            <span className="block text-base sm:text-lg font-serif font-bold text-[#f4f5f7] leading-tight group-hover:text-[#dfcaa8] transition-colors">
               {company.shortName}
             </span>
             <span className="block text-[10px] sm:text-xs text-[#9ca3af] uppercase tracking-wider">
@@ -35,14 +35,14 @@ export function Header() {
           <Link href="/#sobre" className="hover:text-[#dfcaa8] transition-colors">
             Sobre o Advogado
           </Link>
-          <Link href="/#qualificador" className="hover:text-[#dfcaa8] transition-colors">
-            Pré-Qualificação
+          <Link href="/#orientacao" className="text-[#dfcaa8] font-medium hover:text-white transition-colors">
+            Orientação Confidencial
           </Link>
           <Link href="/#faq" className="hover:text-[#dfcaa8] transition-colors">
             Dúvidas Frequentes
           </Link>
           <Link href="/#localizacao" className="hover:text-[#dfcaa8] transition-colors">
-            Localização
+            Localização & Rotas
           </Link>
         </nav>
 
@@ -55,7 +55,7 @@ export function Header() {
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#25D366] text-white font-semibold text-xs sm:text-sm hover:bg-[#20ba59] active:scale-95 transition-all whatsapp-glow"
           >
             <MessageCircle className="w-4 h-4" />
-            Consulta no WhatsApp
+            Orientação no WhatsApp
           </a>
         </div>
 
@@ -83,7 +83,7 @@ export function Header() {
 
       {/* Menu Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-[#0f1218] border-b border-[#1f2533] px-4 pt-4 pb-6 space-y-3">
+        <div className="md:hidden bg-[#0f1218] border-b border-[#1f2533] px-4 pt-4 pb-6 space-y-3 animate-fade-in">
           <Link
             href="/#especialidades"
             onClick={() => setIsOpen(false)}
@@ -99,11 +99,11 @@ export function Header() {
             Sobre o Advogado
           </Link>
           <Link
-            href="/#qualificador"
+            href="/#orientacao"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
+            className="block py-2 text-sm text-[#dfcaa8] font-medium"
           >
-            Pré-Qualificação de Caso
+            Orientação Confidencial
           </Link>
           <Link
             href="/#faq"
@@ -124,14 +124,14 @@ export function Header() {
             onClick={() => setIsOpen(false)}
             className="block py-2 text-sm text-[#c5a880] font-medium"
           >
-            Página de Links (Bio)
+            Canais de Atendimento (Bio)
           </Link>
           <div className="pt-2">
             <a
               href={buildWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm shadow-lg"
             >
               <MessageCircle className="w-4 h-4" />
               Falar com Dr. Marcelo no WhatsApp

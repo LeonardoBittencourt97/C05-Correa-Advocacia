@@ -5,105 +5,88 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function Hero() {
   return (
-    <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden bg-[#08090c]">
-      {/* Background Radial Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-radial-gradient pointer-events-none" />
+    <section className="relative min-h-[90vh] sm:min-h-[94vh] flex items-center pt-24 sm:pt-28 pb-16 sm:pb-24 overflow-hidden">
+      {/* Imagem de Fundo Adaptativa (Desktop / Mobile) */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none">
+        <picture className="w-full h-full block">
+          <source media="(max-width: 767px)" srcSet="/images/header-mobile.jpeg" />
+          <source media="(min-width: 768px)" srcSet="/images/header-desktop.jpeg" />
+          <Image
+            src="/images/header-desktop.jpeg"
+            alt="Corrêa Advocacia Especializada - Marcelo Miguel Corrêa Junior"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-[75%_top] sm:object-center filter brightness-[0.78] contrast-[1.08] transform scale-105 transition-transform duration-10000 hover:scale-100"
+          />
+        </picture>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Coluna de Conteúdo / Copy de Conversão (7 cols) */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Badge de Autoridade */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#c5a880]/10 border border-[#c5a880]/30 text-xs text-[#dfcaa8] font-mono">
-              <Scale className="w-3.5 h-3.5 text-[#c5a880]" />
-              ESPECIALISTA EM AÇÕES TRABALHISTAS BANCÁRIAS
-            </div>
+        {/* Camadas cinematográficas de degradê e vinheta */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050608]/95 via-[#08090c]/85 to-[#08090c]/40 sm:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08090c] via-transparent to-[#050608]/60" />
+        <div className="absolute inset-0 bg-radial-gradient opacity-60" />
+      </div>
 
-            {/* Headline Principal */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#f4f5f7] leading-tight sm:leading-[1.15]">
-              Defesa intransigente dos seus <span className="gold-gradient-text">direitos trabalhistas</span> e bancários.
-            </h1>
-
-            {/* Subheadline com foco nas dores reais */}
-            <p className="text-base sm:text-lg text-[#9ca3af] max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Atuação jurídica de alta precisão contra fraudes de cargo de confiança, cobrança de 7ª e 8ª horas, metas abusivas, assédio moral e Doenças Ocupacionais (Burnout).
-            </p>
-
-            {/* Pilares de Confiança Rápida */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-[#f4f5f7] pt-2">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 text-[#c5a880]" />
-                12 Anos de Experiência
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-[#25D366]" />
-                Sigilo Absoluto Garantido
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Award className="w-4 h-4 text-[#c5a880]" />
-                Atendimento em Todo o Brasil
-              </span>
-            </div>
-
-            {/* CTAs de Alta Conversão */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-              <a
-                href={buildWhatsAppUrl("Olá, Dr. Marcelo! Gostaria de conversar sobre o meu caso trabalhista.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-base shadow-xl hover:bg-[#20ba59] active:scale-98 transition-all whatsapp-glow"
-              >
-                <MessageCircle className="w-5 h-5" />
-                Falar com Dr. Marcelo no WhatsApp
-              </a>
-
-              <a
-                href="#qualificador"
-                className="w-full sm:w-auto flex items-center justify-center px-6 py-4 rounded-xl border border-[#1f2533] hover:border-[#c5a880] text-[#dfcaa8] hover:bg-[#0f1218] text-sm font-semibold transition-all"
-              >
-                Simular Meu Caso (3 Passos) →
-              </a>
-            </div>
-
-            <p className="text-[11px] text-[#6b7280]">
-              * Atendimento inicial confidencial, seguro e sem comunicação com o seu empregador atual.
-            </p>
+      {/* Conteúdo do Hero com Card Flutuante e Alta Legibilidade */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="max-w-2xl lg:max-w-3xl space-y-6 text-left">
+          {/* Badge de Autoridade com Glow Dourado */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0f1218]/90 backdrop-blur-md border border-[#c5a880]/40 text-xs text-[#dfcaa8] font-mono shadow-lg gold-glow">
+            <Scale className="w-3.5 h-3.5 text-[#c5a880]" />
+            <span>ADVOCACIA ESPECIALIZADA EM DIREITO TRABALHISTA BANCÁRIO</span>
           </div>
 
-          {/* Coluna da Imagem Oficial do Advogado (5 cols) */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            {/* Moldura / Card de Apresentação */}
-            <div className="relative w-full max-w-md rounded-3xl overflow-hidden glass-card border border-[#c5a880]/30 shadow-2xl p-2 sm:p-3">
-              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-[#0f1218]">
-                {/* Carregamento adaptativo Desktop / Mobile com CSS prioritário */}
-                <picture>
-                  <source media="(max-width: 640px)" srcSet="/images/header-mobile.jpeg" />
-                  <source media="(min-width: 641px)" srcSet="/images/header-desktop.jpeg" />
-                  <Image
-                    src="/images/header-desktop.jpeg"
-                    alt="Marcelo Miguel Corrêa Junior - Advogado Trabalhista Especialista em Bancários"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 500px"
-                    className="object-cover object-top"
-                  />
-                </picture>
+          {/* Headline Imponente */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#f4f5f7] leading-[1.18] sm:leading-[1.12] drop-shadow-md">
+            Defesa firme e estratégica para quem construiu sua história sob{" "}
+            <span className="gold-gradient-text">pressão e sobrejornada</span>.
+          </h1>
 
-                {/* Overlay inferior sutil para leitura de informações */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#08090c] via-[#08090c]/70 to-transparent p-4 sm:p-6 text-left">
-                  <span className="block text-xs font-mono uppercase tracking-wider text-[#dfcaa8]">
-                    Sócio Fundador
-                  </span>
-                  <span className="block text-base sm:text-lg font-serif font-bold text-[#f4f5f7]">
-                    {company.founder}
-                  </span>
-                  <span className="block text-xs text-[#9ca3af]">
-                    Pós-Graduado em Direito e Processo do Trabalho (UNICURITIBA)
-                  </span>
-                </div>
-              </div>
-            </div>
+          {/* Subtítulo Humanizado e Empático */}
+          <p className="text-sm sm:text-lg text-[#d1d5db] leading-relaxed max-w-2xl drop-shadow">
+            Atuação técnica e sigilosa na descaracterização de falsos cargos de confiança, recuperação das 7ª e 8ª horas, e reparação integral por Burnout, assédio moral e metas desumanas.
+          </p>
+
+          {/* Pilares de Segurança Imediata */}
+          <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-[#f4f5f7] pt-1">
+            <span className="flex items-center gap-2 bg-[#08090c]/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#1f2533]">
+              <CheckCircle className="w-4 h-4 text-[#c5a880]" />
+              12 Anos de Liderança
+            </span>
+            <span className="flex items-center gap-2 bg-[#08090c]/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#1f2533]">
+              <Shield className="w-4 h-4 text-[#25D366]" />
+              Sigilo Absoluto Garantido
+            </span>
+            <span className="flex items-center gap-2 bg-[#08090c]/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#1f2533]">
+              <Award className="w-4 h-4 text-[#c5a880]" />
+              Atendimento Nacional
+            </span>
           </div>
+
+          {/* Botões de Ação Imediata */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
+            <a
+              href={buildWhatsAppUrl("Olá, Dr. Marcelo! Vim pelo site da Corrêa Advocacia e gostaria de uma orientação confidencial sobre a minha situação trabalhista.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-base shadow-2xl hover:bg-[#20ba59] active:scale-98 transition-all duration-300 whatsapp-glow group"
+            >
+              <MessageCircle className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              <span>Falar Diretamente com Dr. Marcelo</span>
+            </a>
+
+            <a
+              href="#orientacao"
+              className="flex items-center justify-center px-6 py-4 rounded-xl bg-[#0f1218]/80 backdrop-blur-md border border-[#c5a880]/50 hover:border-[#dfcaa8] text-[#dfcaa8] hover:text-white text-sm font-semibold transition-all duration-300 shadow-lg"
+            >
+              Entenda Seus Direitos (Guia Rápido) →
+            </a>
+          </div>
+
+          <p className="text-[11px] text-[#9ca3af]">
+            * Consulta preliminar estritamente confidencial, sem nenhum contato com o seu empregador.
+          </p>
         </div>
       </div>
     </section>
