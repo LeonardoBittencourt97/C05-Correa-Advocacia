@@ -1,33 +1,35 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { company } from "@/lib/constants";
 
-const inter = Inter({
+// Tipografia moderna, legível e de alto impacto para Landing Pages
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-heading",
+  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-sans",
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: `${company.name} | Marcelo Miguel Corrêa Junior - Advogado Trabalhista Bancário`,
   description:
-    "Defesa estratégica em Direito do Trabalho para bancários e trabalhadores em todo o Brasil. Foco em cargos de confiança fraudulentos, 7ª e 8ª horas, Burnout e assédio moral.",
+    "Defesa estratégica e sigilosa para bancários e trabalhadores. Recupere 7ª e 8ª horas, descaracterize falsos cargos de confiança e obtenha indenização por Burnout e metas abusivas.",
   keywords: [
     "advogado trabalhista bancario",
     "acao trabalhista bancario curitiba",
     "7 e 8 horas bancarios",
     "cargo de confianca bancario fraude",
     "burnout bancario indenizacao",
-    "assedio moral bancos",
     "Marcelo Miguel Correa Junior",
     "Correa Advocacia Especializada",
   ],
@@ -77,18 +79,17 @@ export default function RootLayout({
       jobTitle: "Advogado Trabalhista Fundador",
     },
     areaServed: "BR",
-    priceRange: "$$",
   };
 
   return (
-    <html lang="pt-BR" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="pt-BR" suppressHydrationWarning className={`${plusJakarta.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(legalServiceSchema) }}
         />
       </head>
-      <body className="font-sans antialiased bg-white dark:bg-[#08090c] text-slate-900 dark:text-[#f4f5f7] min-h-screen selection:bg-[#c5a880] selection:text-white dark:selection:text-[#08090c]">
+      <body className="font-sans antialiased bg-slate-50 dark:bg-[#07080b] text-slate-900 dark:text-slate-100 min-h-screen selection:bg-[#c5a880] selection:text-white">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>

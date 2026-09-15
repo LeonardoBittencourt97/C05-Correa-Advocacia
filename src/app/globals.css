@@ -4,28 +4,28 @@
 
 @layer base {
   :root {
-    --bg-main: #fcfcfd;
+    --bg-page: #f8fafc;
     --bg-surface: #ffffff;
-    --bg-card: #f8fafc;
-    --border-subtle: #e2e8f0;
-    --border-gold: rgba(197, 168, 128, 0.45);
-    --gold-accent: #b28a55;
-    --gold-light: #946e3d;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
+    --bg-elevated: #f1f5f9;
+    --text-title: #0f172a;
+    --text-body: #334155;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --gold-primary: #a37a44;
+    --gold-accent: #c49757;
     --whatsapp-green: #25d366;
   }
 
   .dark {
-    --bg-main: #08090c;
+    --bg-page: #07080b;
     --bg-surface: #0f1218;
-    --bg-card: #131720;
-    --border-subtle: #1f2533;
-    --border-gold: rgba(197, 168, 128, 0.28);
+    --bg-elevated: #161b24;
+    --text-title: #f8fafc;
+    --text-body: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border-color: #1e2638;
+    --gold-primary: #dfcaa8;
     --gold-accent: #c5a880;
-    --gold-light: #dfcaa8;
-    --text-primary: #f4f5f7;
-    --text-secondary: #9ca3af;
     --whatsapp-green: #25d366;
   }
 
@@ -35,47 +35,55 @@
   }
 
   body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+    background-color: var(--bg-page);
+    color: var(--text-body);
+    font-family: var(--font-sans), sans-serif;
     overflow-x: hidden;
     min-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), sans-serif;
+    color: var(--text-title);
+    letter-spacing: -0.02em;
   }
 }
 
+/* Gradients e Contrastes de Alta Conversão */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #b28a55 0%, #87622c 100%);
+  background: linear-gradient(135deg, #a37a44 0%, #785223 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .dark .gold-gradient-text {
-  background: linear-gradient(135deg, #dfcaa8 0%, #c5a880 50%, #9a7d55 100%);
+  background: linear-gradient(135deg, #f3e5ce 0%, #c5a880 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gold-glow {
-  box-shadow: 0 0 35px -8px rgba(197, 168, 128, 0.25);
-}
-
 .whatsapp-glow {
-  box-shadow: 0 0 25px -4px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border-subtle);
+.dark .whatsapp-glow {
+  box-shadow: 0 10px 30px -5px rgba(37, 211, 102, 0.5);
 }
 
-.dark .glass-card {
-  background: rgba(15, 18, 24, 0.85);
-  border: 1px solid var(--border-subtle);
+.card-elevated {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
 }
 
-.glass-card:hover {
-  border-color: var(--border-gold);
+.card-elevated:hover {
+  border-color: var(--gold-accent);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+.dark .card-elevated:hover {
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.4);
 }
 
 @media (prefers-reduced-motion: reduce) {
