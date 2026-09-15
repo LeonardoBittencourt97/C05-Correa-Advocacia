@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-main: #08090c;
+    --bg-surface: #0f1218;
+    --bg-card: #131720;
+    --border-subtle: #1f2533;
+    --border-gold: rgba(197, 168, 128, 0.28);
+    --gold-accent: #c5a880;
+    --gold-light: #dfcaa8;
+    --text-primary: #f4f5f7;
+    --text-secondary: #9ca3af;
+    --whatsapp-green: #25d366;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Utilitários visuais de estilo Quiet Luxury */
+.bg-radial-gradient {
+  background: radial-gradient(circle at 50% 0%, rgba(197, 168, 128, 0.08) 0%, transparent 70%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #dfcaa8 0%, #c5a880 50%, #9a7d55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-glow {
+  box-shadow: 0 0 35px -8px rgba(197, 168, 128, 0.25);
+}
+
+.whatsapp-glow {
+  box-shadow: 0 0 25px -4px rgba(37, 211, 102, 0.45);
+}
+
+.glass-card {
+  background: rgba(15, 18, 24, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-card:hover {
+  border-color: var(--border-gold);
+}
+
+/* Respeito a acessibilidade reduzida de movimento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
