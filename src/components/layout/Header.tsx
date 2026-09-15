@@ -6,57 +6,52 @@ import Image from "next/image";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { company } from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-[#08090c]/90 backdrop-blur-md border-b border-[#1f2533]/80">
+    <header className="fixed top-0 left-0 right-0 z-40 bg-white/90 dark:bg-[#08090c]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#1f2533]/80 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* LOGO OFICIAL COM LINK PARA PÁGINA INICIAL */}
+        
+        {/* LOGO OFICIAL - APENAS A LOGO, SEM O TEXTO AO LADO CONFORME SOLICITADO */}
         <Link
           href="/"
-          className="flex items-center gap-3 group focus:outline-none transition-transform hover:opacity-90"
+          className="flex items-center group focus:outline-none transition-transform hover:opacity-90"
           aria-label="Ir para a página inicial - Corrêa Advocacia Especializada"
         >
-          <div className="relative w-12 h-12 sm:w-14 sm:h-14">
+          <div className="relative w-14 h-14 sm:w-16 sm:h-16">
             <Image
               src="/images/logo-transparent.png"
               alt="Logo Corrêa Advocacia Especializada"
               fill
               priority
-              sizes="56px"
-              className="object-contain filter brightness-110 drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+              sizes="64px"
+              className="object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
             />
-          </div>
-          <div className="hidden sm:block">
-            <span className="block text-base font-serif font-bold text-[#f4f5f7] tracking-tight leading-none">
-              {company.shortName}
-            </span>
-            <span className="block text-[10px] font-mono tracking-widest text-[#dfcaa8] uppercase mt-1">
-              Advocacia Especializada
-            </span>
           </div>
         </Link>
 
-        {/* NAVEGAÇÃO MINIMALISTA & DIRETA */}
-        <nav className="hidden md:flex items-center gap-8 text-xs sm:text-sm font-medium text-[#9ca3af]">
-          <Link href="/#escritorio" className="hover:text-[#dfcaa8] transition-colors">
+        {/* NAVEGAÇÃO MINIMALISTA COM 'CONTATO' EM VEZ DE 'BATEL/ROTAS' */}
+        <nav className="hidden md:flex items-center gap-8 text-xs sm:text-sm font-medium text-slate-600 dark:text-[#9ca3af]">
+          <Link href="/#escritorio" className="hover:text-[#b28a55] dark:hover:text-[#dfcaa8] transition-colors">
             O Escritório
           </Link>
-          <Link href="/#especialidades" className="hover:text-[#dfcaa8] transition-colors">
+          <Link href="/#especialidades" className="hover:text-[#b28a55] dark:hover:text-[#dfcaa8] transition-colors">
             Atuação
           </Link>
-          <Link href="/#orientacao" className="text-[#dfcaa8] hover:text-white transition-colors">
+          <Link href="/#orientacao" className="text-[#b28a55] dark:text-[#dfcaa8] font-semibold hover:opacity-80 transition-opacity">
             Orientação Confidencial
           </Link>
-          <Link href="/#localizacao" className="hover:text-[#dfcaa8] transition-colors">
-            Batel / Rotas
+          <Link href="/#contato" className="hover:text-[#b28a55] dark:hover:text-[#dfcaa8] transition-colors">
+            Contato
           </Link>
         </nav>
 
-        {/* CTA WHATSAPP MINIMALISTA & ELEGANTE */}
-        <div className="hidden md:flex items-center">
+        {/* AÇÕES NO TOPO: BOTÃO CLARO/ESCURO + WHATSAPP */}
+        <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle />
           <a
             href={buildWhatsAppUrl()}
             target="_blank"
@@ -69,7 +64,8 @@ export function Header() {
         </div>
 
         {/* MOBILE ACTIONS */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex md:hidden items-center gap-2.5">
+          <ThemeToggle />
           <a
             href={buildWhatsAppUrl()}
             target="_blank"
@@ -81,7 +77,7 @@ export function Header() {
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-lg border border-[#1f2533] text-[#9ca3af] hover:text-[#f4f5f7]"
+            className="p-2 rounded-lg border border-gray-200 dark:border-[#1f2533] text-slate-700 dark:text-[#9ca3af] hover:bg-gray-100 dark:hover:bg-[#151a24]"
             aria-label={isOpen ? "Fechar Menu" : "Abrir Menu"}
             aria-expanded={isOpen}
           >
@@ -92,41 +88,34 @@ export function Header() {
 
       {/* MENU MOBILE MINIMALISTA */}
       {isOpen && (
-        <div className="md:hidden bg-[#08090c] border-b border-[#1f2533] px-6 py-6 space-y-4 animate-fade-in">
+        <div className="md:hidden bg-white dark:bg-[#08090c] border-b border-gray-200 dark:border-[#1f2533] px-6 py-6 space-y-4 animate-fade-in shadow-xl">
           <Link
             href="/#escritorio"
             onClick={() => setIsOpen(false)}
-            className="block text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
+            className="block text-sm text-slate-800 dark:text-[#f4f5f7] hover:text-[#b28a55]"
           >
             O Escritório
           </Link>
           <Link
             href="/#especialidades"
             onClick={() => setIsOpen(false)}
-            className="block text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
+            className="block text-sm text-slate-800 dark:text-[#f4f5f7] hover:text-[#b28a55]"
           >
-            Atuação em Direito Trabalhista
+            Atuação
           </Link>
           <Link
             href="/#orientacao"
             onClick={() => setIsOpen(false)}
-            className="block text-sm text-[#dfcaa8] font-medium"
+            className="block text-sm text-[#b28a55] dark:text-[#dfcaa8] font-semibold"
           >
             Orientação Confidencial
           </Link>
           <Link
-            href="/#localizacao"
+            href="/#contato"
             onClick={() => setIsOpen(false)}
-            className="block text-sm text-[#f4f5f7] hover:text-[#dfcaa8]"
+            className="block text-sm text-slate-800 dark:text-[#f4f5f7] hover:text-[#b28a55]"
           >
-            Localização & Rotas no Batel
-          </Link>
-          <Link
-            href="/links"
-            onClick={() => setIsOpen(false)}
-            className="block text-sm text-[#c5a880] font-medium"
-          >
-            Canais de Atendimento (Bio)
+            Contato
           </Link>
           <div className="pt-2">
             <a

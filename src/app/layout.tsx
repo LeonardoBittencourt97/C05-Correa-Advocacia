@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { company } from "@/lib/constants";
 
 const inter = Inter({
@@ -50,7 +51,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Schema estruturado Organization / LegalService para SEO avançado
   const legalServiceSchema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
@@ -81,15 +81,17 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${playfair.variable} dark`}>
+    <html lang="pt-BR" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(legalServiceSchema) }}
         />
       </head>
-      <body className="font-sans antialiased bg-[#08090c] text-[#f4f5f7] min-h-screen selection:bg-[#c5a880] selection:text-[#08090c]">
-        <SmoothScroll>{children}</SmoothScroll>
+      <body className="font-sans antialiased bg-white dark:bg-[#08090c] text-slate-900 dark:text-[#f4f5f7] min-h-screen selection:bg-[#c5a880] selection:text-white dark:selection:text-[#08090c]">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );
