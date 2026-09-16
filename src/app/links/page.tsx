@@ -17,8 +17,25 @@ export const metadata = {
 export default function LinksPage() {
   return (
     <main className="min-h-screen bg-[#08090c] text-[#f4f5f7] py-12 px-4 flex flex-col items-center justify-between relative overflow-hidden">
-      {/* Background Minimalista com Brilho Sutil */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-80 bg-radial-gradient pointer-events-none opacity-40" />
+      {/* Imagem de Fundo Responsiva (Desktop e Mobile) */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none">
+        <picture className="w-full h-full block">
+          <source media="(max-width: 767px)" srcSet="/images/header-mobile.jpeg" />
+          <source media="(min-width: 768px)" srcSet="/images/header-desktop.jpeg" />
+          <Image
+            src="/images/header-desktop.jpeg"
+            alt="Fundo Corrêa Advocacia"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </picture>
+
+        {/* Overlay elegante para garantir máxima legibilidade dos botões e dados */}
+        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[2px]" />
+      </div>
 
       <div className="w-full max-w-sm mx-auto relative z-10 flex flex-col items-center space-y-6">
         
