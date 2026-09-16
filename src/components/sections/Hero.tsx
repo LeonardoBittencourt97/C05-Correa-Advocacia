@@ -5,9 +5,9 @@ import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pt-24 sm:pt-28 pb-12 sm:pb-14">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pt-24 pb-14 sm:py-28">
       
-      {/* Imagem de Fundo 100% Nítida Abrangendo Toda a Tela */}
+      {/* Imagem de Fundo Abrangendo Toda a Tela */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <picture className="w-full h-full block">
           <source media="(max-width: 767px)" srcSet="/images/headermobile.jpeg" />
@@ -19,47 +19,41 @@ export function Hero() {
             priority
             quality={100}
             sizes="100vw"
-            className="object-cover object-[70%_top] sm:object-[left_center]"
+            className="object-cover object-[75%_top] sm:object-[right_center]"
           />
         </picture>
 
         {/* 
           Degradê suave e integrado à foto:
-          - No Mobile: sombra suave na base para manter os botões legíveis.
-          - No Desktop: sombra suave na lateral direita para dar contraste de leitura nas frases e botões.
+          - No Mobile: sombra na base para leitura dos botões e textos
+          - No Desktop: gradiente da esquerda (branco / suave) para destacar o conteúdo sem cobrir o advogado à direita
         */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-slate-950/30 sm:to-slate-950/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/90 sm:to-transparent sm:dark:from-[#07080b] sm:dark:via-[#07080b]/90 sm:dark:to-transparent" />
       </div>
 
       {/* 
-        1. CONTAINER DO H1 ÚNICO E SOZINHO NO CANTO SUPERIOR DIREITO (DESKTOP)
-        - Fica no topo direito sobre a estante, com fonte grande e animação de digitação/apagamento
+        CONTAINER ÚNICO: TEXTOS E BOTÕES JUNTOS NA LATERAL ESQUERDA (ALINHADOS NO MEIO)
       */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex justify-end">
-        <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl text-left">
-          <TypewriterHeading />
-        </div>
-      </div>
-
-      {/* 
-        2. SUBTÍTULO, BOTÕES E AVISO NO LUGAR ATUAL (SEM MEXER NA POSIÇÃO INFERIOR)
-        - No mobile fica na base, no desktop permanece abaixo à direita
-      */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex justify-end">
-        <div className="w-full max-w-sm sm:max-w-md lg:max-w-md text-left space-y-3 sm:space-y-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="w-full max-w-xl text-left space-y-5 sm:space-y-6">
           
-          {/* Subtítulo Sucinto Flutuante */}
-          <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-normal drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-            Recupere horas extras sonegadas, anule falsos cargos de confiança e garanta suas indenizações com total sigilo.
+          {/* H1 com Efeito Typewriter */}
+          <div>
+            <TypewriterHeading />
+          </div>
+
+          {/* Subtítulo Sucinto */}
+          <p className="text-sm sm:text-base text-slate-200 sm:text-slate-700 sm:dark:text-slate-300 leading-relaxed font-normal drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:drop-shadow-none max-w-lg">
+            Recupere horas extras sonegadas, anule falsos cargos de confiança e garanta suas indenizações com total sigilo e condução artesanal.
           </p>
 
-          {/* Botões Lado a Lado Flutuantes */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 pt-1">
+          {/* Botões de Conversão */}
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 pt-1">
             <a
               href={buildWhatsAppUrl("Olá, Dr. Marcelo! Vim pelo site da Corrêa Advocacia e gostaria de entender meus direitos trabalhistas.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] text-white font-bold text-xs sm:text-sm shadow-2xl hover:bg-[#20ba59] active:scale-98 transition-all whatsapp-glow whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-xs sm:text-sm shadow-xl hover:bg-[#20ba59] active:scale-98 transition-all whatsapp-glow whitespace-nowrap"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Avaliar Meu Caso</span>
@@ -67,15 +61,15 @@ export function Hero() {
 
             <a
               href="#orientacao"
-              className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-black/40 hover:bg-black/60 border border-white/30 text-white font-semibold text-xs sm:text-sm transition-all whitespace-nowrap drop-shadow"
+              className="inline-flex items-center justify-center gap-1.5 px-5 py-3.5 rounded-xl bg-slate-900/80 sm:bg-slate-100 hover:bg-slate-900 sm:hover:bg-slate-200 border border-white/20 sm:border-slate-300 text-white sm:text-slate-800 dark:sm:bg-slate-800 dark:sm:text-white dark:sm:border-slate-700 font-semibold text-xs sm:text-sm transition-all whitespace-nowrap shadow-sm"
             >
               <span>Verificar Direitos</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          <p className="text-[11px] text-slate-200 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
-            Atendimento preliminar estritamente sigiloso.
+          <p className="text-[11px] sm:text-xs text-slate-300 sm:text-slate-500 sm:dark:text-slate-400">
+            Atendimento preliminar estritamente sigiloso e direto com o advogado.
           </p>
         </div>
       </div>

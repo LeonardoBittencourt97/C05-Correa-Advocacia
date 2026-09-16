@@ -50,11 +50,11 @@ export function TypewriterHeading() {
   }, [displayedText, isDeleting, phraseIndex]);
 
   return (
-    <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-      <span className="block text-slate-100 font-bold mb-1">Você</span>
-      <span className="text-[#dfcaa8] min-h-[3.2em] sm:min-h-[2.8em] block">
+    <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-extrabold text-slate-900 leading-tight tracking-tight">
+      <span className="block text-slate-900 font-extrabold mb-1">Você</span>
+      <span className="text-[#a37a44] min-h-[3.2em] sm:min-h-[2.8em] block">
         {displayedText}
-        <span className="inline-block w-0.5 sm:w-1 h-6 sm:h-9 bg-[#c5a880] ml-1 animate-pulse align-middle" />
+        <span className="inline-block w-0.5 sm:w-1 h-6 sm:h-9 bg-[#a37a44] ml-1 animate-pulse align-middle" />
       </span>
     </h1>
   );

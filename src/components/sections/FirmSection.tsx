@@ -72,23 +72,24 @@ export function FirmSection() {
               </div>
 
               {/* Chamada para Ação no Fim da Seção */}
-              <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-slate-200 dark:border-slate-800">
+              <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-slate-200 dark:border-slate-800">
                 <div>
-                  <p className="text-sm font-bold text-slate-900 dark:text-white">
+                  <p className="text-xs uppercase tracking-wider text-[#a37a44] dark:text-[#dfcaa8] font-bold">
+                    Conheça o Titular da Banca
+                  </p>
+                  <p className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                     {company.founder}
                   </p>
-                  <p className="text-xs text-[#a37a44] dark:text-[#dfcaa8] font-medium">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                     Advogado Sócio-Fundador • {company.oab}
                   </p>
                 </div>
 
                 <a
-                  href={buildWhatsAppUrl("Olá, Dr. Marcelo! Li sobre a história do escritório e gostaria de solicitar uma análise para o meu caso.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#advogado"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold hover:opacity-90 transition-all shadow-md"
                 >
-                  <span>Falar com o Especialista</span>
+                  <span>Ver Perfil do Dr. Marcelo</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
