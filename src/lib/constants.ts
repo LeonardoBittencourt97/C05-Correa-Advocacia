@@ -176,3 +176,48 @@ export const faqs = [
       "O Burnout é reconhecido pela OMS e pelos tribunais trabalhistas como doença ocupacional equiparada a acidente de trabalho. Você pode ter direito à estabilidade no emprego por 12 meses após a alta do INSS, indenização por danos morais, ressarcimento de despesas médicas e até pensão mensal em casos de incapacidade.",
   },
 ] as const;
+
+export const testimonials = [
+  {
+    author: "Leticia Correa",
+    role: "Cliente",
+    date: "há 4 meses",
+    text: "Fui muito bem atendida, com profissionalismo, clareza e atenção em cada detalhe. Um trabalho sério, conduzido com responsabilidade e respeito, transmitindo segurança durante todo o processo. Recomendo com confiança para quem busca um advogado competente e comprometido.",
+    rating: 5,
+  },
+  {
+    author: "Renato Pinheiro",
+    role: "Local Guide",
+    date: "há 4 meses",
+    text: "Um profissional excepcional. Além da competência técnica, o Dr. Marcelo mostrou empatia, paciência e transparência em cada etapa do processo. Sempre disponível para esclarecer dúvidas, conduziu tudo com segurança e profissionalismo. Sou muito grato pelo resultado alcançado.",
+    rating: 5,
+  },
+  {
+    author: "Francielly Pecuch",
+    role: "Cliente",
+    date: "há 4 meses",
+    text: "Excelente advogado, competente e dedicado. Demonstra grande conhecimento jurídico e muita responsabilidade em cada caso, sempre transmitindo segurança e confiança.",
+    rating: 5,
+  },
+  {
+    author: "Joao Victor",
+    role: "Cliente",
+    date: "há 4 meses",
+    text: "Dr. Marcelo é um excelentíssimo advogado, um baita profissional. Muito atencioso, proativo e inteligentíssimo. Recomendo demais! Muito obrigado por tudo, Dr. Marcelo!",
+    rating: 5,
+  },
+  {
+    author: "Marilda da Conceição Campelli",
+    role: "Cliente",
+    date: "há 4 meses",
+    text: "Recomendo com certeza! Excelente profissional! Ético e comprometido em resolver a situação com seriedade.",
+    rating: 5,
+  },
+  {
+    author: "Fabiany Carvinho",
+    role: "Cliente",
+    date: "há 4 meses",
+    text: "Atencioso e exatamente competente em toda a condução processual.",
+    rating: 5,
+  },
+] as const;

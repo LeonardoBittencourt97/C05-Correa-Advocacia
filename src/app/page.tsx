@@ -2,33 +2,41 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { Hero } from "@/components/sections/Hero";
+import { BenefitsBar } from "@/components/sections/BenefitsBar";
 import { FirmSection } from "@/components/sections/FirmSection";
 import { Specialization } from "@/components/sections/Specialization";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { LeadQualifier } from "@/components/sections/LeadQualifier";
 import { FAQ } from "@/components/sections/FAQ";
 import { MapSection } from "@/components/sections/MapSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#08090c] text-[#f4f5f7]">
+    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-[#07080b] text-slate-900 dark:text-slate-100 transition-colors">
       <Header />
       <main className="flex-1">
-        {/* 1. Hero com Fundo Fotográfico, Minimalista e Direto */}
+        {/* 1. Topo / Primeira Dobra de Alta Conversão */}
         <Hero />
 
-        {/* 2. Parte Especial do Escritório com a Logo em Fundo Branco */}
+        {/* 2. Benefícios Rápidos em Destaque */}
+        <BenefitsBar />
+
+        {/* 3. O Escritório (Autoridade + Logo Oficial Fundo Branco) */}
         <FirmSection />
 
-        {/* 3. Especialidades Principais Enxutas */}
+        {/* 4. Especialidades & Vantagens Práticas */}
         <Specialization />
 
-        {/* 4. Orientação Confidencial Passo a Passo */}
+        {/* 5. Prova Social: Carrossel de Depoimentos Reais do Google 5.0 */}
+        <Testimonials />
+
+        {/* 6. Diagnóstico Preliminar em 3 Passos (Formulário/Oferta no WhatsApp) */}
         <LeadQualifier />
 
-        {/* 5. Dúvidas Frequentes Objetivas */}
+        {/* 7. Dúvidas Frequentes (FAQ) */}
         <FAQ />
 
-        {/* 6. Localização no Batel & Rotas Maps */}
+        {/* 8. Contato & Rotas no Batel */}
         <MapSection />
       </main>
       <Footer />
