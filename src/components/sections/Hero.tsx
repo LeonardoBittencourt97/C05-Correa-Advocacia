@@ -37,11 +37,11 @@ export function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="w-full max-w-xl text-left space-y-5 sm:space-y-6">
           
-          {/* Assinatura Institucional Sóbria */}
-          <p className="text-xs sm:text-sm font-semibold tracking-wide uppercase">
-            <span className="text-[#a37a44] font-bold">CORRÊA ADVOCACIA • </span>
-            <span className="text-slate-900 dark:text-slate-200">Atuação trabalhista estratégica em todo o Brasil</span>
-          </p>
+          {/* H1 Institucional em Destaque */}
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-snug">
+            <span className="text-[#a37a44] block sm:inline font-black">CORRÊA ADVOCACIA • </span>
+            <span className="text-slate-900 dark:text-slate-100">Atuação trabalhista estratégica em todo o Brasil</span>
+          </h1>
 
           {/* H1 com Efeito Typewriter */}
           <div>
