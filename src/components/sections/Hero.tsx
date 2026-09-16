@@ -50,7 +50,7 @@ export function Hero() {
 
           {/* Subtítulo Sucinto */}
           <p className="text-sm sm:text-base text-slate-200 sm:text-slate-700 sm:dark:text-slate-300 leading-relaxed font-normal drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:drop-shadow-none max-w-lg">
-            Recupere horas extras sonegadas, anule falsos cargos de confiança e garanta suas indenizações com total sigilo e condução artesanal.
+            Atuação jurídica especializada em jornada extraordinária, descaracterização de cargo de confiança e reflexos rescisórios, com rigor técnico, sigilo e condução artesanal.
           </p>
 
           {/* Botões de Conversão */}
@@ -62,14 +62,14 @@ export function Hero() {
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-xs sm:text-sm shadow-xl hover:bg-[#20ba59] active:scale-98 transition-all whatsapp-glow whitespace-nowrap"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>Avaliar Meu Caso</span>
+              <span>Consultar Advogado</span>
             </a>
 
             <a
               href="#orientacao"
               className="inline-flex items-center justify-center gap-1.5 px-5 py-3.5 rounded-xl bg-slate-900/80 sm:bg-slate-100 hover:bg-slate-900 sm:hover:bg-slate-200 border border-white/20 sm:border-slate-300 text-white sm:text-slate-800 dark:sm:bg-slate-800 dark:sm:text-white dark:sm:border-slate-700 font-semibold text-xs sm:text-sm transition-all whitespace-nowrap shadow-sm"
             >
-              <span>Verificar Direitos</span>
+              <span>Conhecer seus Direitos</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>

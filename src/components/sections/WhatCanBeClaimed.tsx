@@ -124,13 +124,13 @@ export function WhatCanBeClaimed() {
           </div>
 
           <a
-            href={buildWhatsAppUrl("Olá, Dr. Marcelo! Li os itens que podem ser cobrados e gostaria de uma avaliação detalhada do meu contrato.")}
+            href={buildWhatsAppUrl("Olá, Dr. Marcelo! Li os itens que podem ser cobrados e gostaria de tirar dúvidas sobre o meu contrato de trabalho.")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-6 py-4 rounded-xl bg-[#25D366] text-white font-bold text-sm hover:bg-[#20ba59] active:scale-98 transition-all shadow-lg whatsapp-glow shrink-0 w-full sm:w-auto justify-center"
           >
             <MessageCircle className="w-4 h-4" />
-            <span>Quero Avaliar Meu Caso</span>
+            <span>Tirar Dúvidas no WhatsApp</span>
           </a>
         </div>
 

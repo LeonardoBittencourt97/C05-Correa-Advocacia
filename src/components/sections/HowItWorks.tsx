@@ -92,7 +92,7 @@ export function HowItWorks() {
             className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-sm shadow-xl hover:bg-[#20ba59] active:scale-98 transition-all whatsapp-glow"
           >
             <MessageCircle className="w-5 h-5" />
-            <span>Quero Começar o Meu Caso</span>
+            <span>Iniciar Contato com o Escritório</span>
           </a>
         </div>
 

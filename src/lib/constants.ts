@@ -113,7 +113,7 @@ export const workflowSteps = [
     number: "02",
     title: "Análise Técnica Documental",
     description:
-      "Avaliamos seus holerites, contratos, registros de ponto e histórico funcional para identificar fraudes e valores sonegados.",
+      "Avaliamos seus holerites, contratos, registros de ponto e histórico funcional para verificar a correta aplicação da CLT e apurar eventuais diferenças de valores.",
   },
   {
     number: "03",
@@ -158,7 +158,7 @@ export const faqs = [
   {
     question: "Assinei o acerto na saída. Isso me impede de cobrar meus direitos?",
     answer:
-      "Na maioria esmagadora das vezes, não. Assinar o Termo de Rescisão do Contrato de Trabalho (TRCT) dá quitação apenas aos valores expressamente descritos no papel, não a tudo o que aconteceu no contrato. Se as horas extras, verbas ou adicionais foram calculados a menor ou sonegados, a diferença integral continua sendo devida e pode ser cobrada na Justiça.",
+      "Na maioria esmagadora das vezes, não. Assinar o Termo de Rescisão do Contrato de Trabalho (TRCT) dá quitação apenas aos valores expressamente descritos no papel, não a tudo o que aconteceu no contrato. Se as horas extras, verbas ou adicionais foram calculados a menor ou não foram quitados, a diferença legal continua sendo devida e pode ser pleiteada na Justiça.",
   },
 ] as const;
 
@@ -174,7 +174,7 @@ export const testimonials = [
     author: "Renato Pinheiro",
     role: "Local Guide",
     date: "há 4 meses",
-    text: "Um profissional excepcional. Além da competência técnica, o Dr. Marcelo mostrou empatia, paciência e transparência em cada etapa do processo. Sempre disponível para esclarecer dúvidas, conduziu tudo com segurança e profissionalismo. Sou muito grato pelo resultado alcançado.",
+    text: "Um profissional excepcional. Além da competência técnica, o Dr. Marcelo mostrou empatia, paciência e transparência em cada etapa do processo. Sempre disponível para esclarecer dúvidas, conduziu tudo com segurança e profissionalismo. Sou muito grato pela dedicação e suporte jurídico em cada etapa.",
     rating: 5,
   },
   {

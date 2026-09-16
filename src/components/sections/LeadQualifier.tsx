@@ -139,7 +139,7 @@ export function LeadQualifier() {
         <div className="text-center max-w-xl mx-auto mb-8">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs text-[#a37a44] dark:text-[#dfcaa8] font-bold uppercase tracking-wider mb-2.5">
             <HeartHandshake className="w-3.5 h-3.5" />
-            <span>Diagnóstico Preliminar em 3 Passos</span>
+            <span>Orientação Inicial em 3 Passos</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">
             Selecione o seu caso para orientação sob medida.
@@ -284,7 +284,7 @@ export function LeadQualifier() {
               Seu panorama está organizado!
             </h3>
             <p className="text-xs text-slate-600 dark:text-slate-400">
-              O Dr. Marcelo avaliará seu caso pessoalmente para apontar os caminhos e direitos aplicáveis.
+              O Dr. Marcelo prestará o atendimento diretamente para esclarecer os direitos aplicáveis ao seu relato.
             </p>
 
             <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 text-left text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-1.5">

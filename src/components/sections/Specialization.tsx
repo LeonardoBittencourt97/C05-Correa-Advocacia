@@ -40,7 +40,7 @@ export function Specialization() {
             Em qual destas situações você se reconhece?
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2">
-            Identificamos com precisão se os seus direitos foram violados ou sonegados pela empresa ou banco.
+            Análise técnica detalhada das condições contratuais e conformidade com a legislação trabalhista.
           </p>
         </div>
 

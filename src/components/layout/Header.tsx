@@ -146,12 +146,12 @@ export function Header() {
             Dúvidas
           </Link>
 
-          {/* Item 5: Faça seu Diagnóstico */}
+          {/* Item 5: Orientação Jurídica */}
           <Link
             href="/#orientacao"
             className="text-[#a37a44] hover:opacity-80 transition-opacity font-bold"
           >
-            Faça seu Diagnóstico
+            Orientação Jurídica
           </Link>
 
           {/* Item 6: Contato & Sede */}
@@ -264,7 +264,7 @@ export function Header() {
             onClick={() => setIsOpen(false)}
             className="block text-sm font-semibold text-[#a37a44]"
           >
-            Faça seu Diagnóstico
+            Orientação Jurídica
           </Link>
           <Link
             href="/#contato"

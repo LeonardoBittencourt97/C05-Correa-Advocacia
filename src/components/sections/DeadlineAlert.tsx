@@ -39,28 +39,28 @@ export function DeadlineAlert() {
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Dentro desse prazo, é possível cobrar os direitos sonegados dos <strong>últimos 5 anos</strong> trabalhados, conforme o art. 7º, inciso XXIX, da Constituição Federal. 
+                Dentro desse prazo, é possível pleitear os direitos decorrentes do contrato de trabalho dos <strong>últimos 5 anos</strong> trabalhados, conforme o art. 7º, inciso XXIX, da Constituição Federal. 
               </p>
               
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Passados 2 anos do encerramento do contrato, o direito prescreve e a dívida da empresa deixa de poder ser exigida judicialmente, mesmo que fosse elevada. Por isso, deixar para depois quase sempre custa caro.
+                Passados 2 anos do encerramento do contrato, o direito prescreve e a exigibilidade judicial se extingue pela regra constitucional. Por isso, a orientação prévia e oportuna é essencial.
               </p>
 
               {/* Botão de Verificação de Tempo */}
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <a
-                  href={buildWhatsAppUrl("Olá, Dr. Marcelo! Gostaria de verificar se ainda estou dentro do prazo para entrar com ação trabalhista.")}
+                  href={buildWhatsAppUrl("Olá, Dr. Marcelo! Gostaria de consultar sobre o prazo prescricional aplicável ao meu contrato de trabalho.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs sm:text-sm hover:opacity-90 active:scale-98 transition-all shadow-md"
                 >
-                  <span>Ver Se Ainda Dá Tempo no Meu Caso</span>
+                  <span>Verificar Prazo Prescricional</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <span className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#25D366]" />
-                  Análise gratuita e imediata do seu prazo.
+                  Atendimento sigiloso e direto com a equipe jurídica.
                 </span>
               </div>
 

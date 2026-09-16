@@ -94,7 +94,7 @@ export function LawyerSection() {
                   href="#orientacao"
                   className="inline-flex items-center gap-1.5 px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-semibold text-xs sm:text-sm transition-all"
                 >
-                  <span>Avaliar Direitos</span>
+                  <span>Conhecer seus Direitos</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>

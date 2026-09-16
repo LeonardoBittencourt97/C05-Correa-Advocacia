@@ -45,7 +45,7 @@ export function FirmSection() {
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-                Fundado em outubro de 2014, o escritório Corrêa Advocacia Especializada é liderado pelo Dr. Marcelo Miguel Corrêa Junior. Unimos conhecimento prático da rotina corporativa e bancária a uma apuração matemática precisa dos valores sonegados.
+                Fundado em outubro de 2014, o escritório Corrêa Advocacia Especializada é liderado pelo Dr. Marcelo Miguel Corrêa Junior. Unimos conhecimento prático da rotina corporativa e bancária a uma apuração contábil e jurídica criteriosa dos haveres trabalhistas devidos.
               </p>
 
               {/* Prova Social & Diferenciais em Tópicos Claros */}
