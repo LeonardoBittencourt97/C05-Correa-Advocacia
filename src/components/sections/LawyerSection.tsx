@@ -11,14 +11,14 @@ export function LawyerSection() {
         <div className="rounded-3xl card-elevated p-6 sm:p-12 bg-white dark:bg-[#0c1017] border border-slate-200 dark:border-slate-800 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Imagem do Advogado: Desktop e Mobile com as Imagens Específicas de Perfil */}
+            {/* Imagem do Advogado: Desktop e Mobile */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
               <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-[#a37a44]/30 group">
                 <picture className="w-full h-full block">
-                  <source media="(max-width: 767px)" srcSet="/images/perfil-marcelo-mobile.jpeg" />
-                  <source media="(min-width: 768px)" srcSet="/images/perfil-marcelo-desktop.jpeg" />
+                  <source media="(max-width: 767px)" srcSet="/images/header-mobile.jpeg" />
+                  <source media="(min-width: 768px)" srcSet="/images/header-desktop.jpeg" />
                   <Image
-                    src="/images/perfil-marcelo-desktop.jpeg"
+                    src="/images/header-desktop.jpeg"
                     alt="Dr. Marcelo Miguel Corrêa Junior - Advogado Trabalhista"
                     fill
                     sizes="(max-width: 768px) 340px, 380px"
