@@ -50,7 +50,7 @@ export function Hero() {
 
           {/* Subtítulo Sucinto */}
           <p className="text-sm sm:text-base text-slate-200 sm:text-slate-700 sm:dark:text-slate-300 leading-relaxed font-normal drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:drop-shadow-none max-w-lg">
-            Atuação jurídica especializada em jornada extraordinária, descaracterização de cargo de confiança e reflexos rescisórios, com rigor técnico, sigilo e condução artesanal.
+            Assessoria jurídica especializada dedicada ao exame de contratos de trabalho, jornada extraordinária e cargos de confiança, com condução técnica e sigilosa.
           </p>
 
           {/* Botões de Conversão */}
