@@ -5,7 +5,7 @@ import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 export function Hero() {
   return (
-    <section className="relative h-screen min-h-screen flex items-center overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pt-20 sm:pt-24">
+    <section className="relative h-screen min-h-screen flex items-end sm:items-center overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pb-6 sm:pb-0 pt-20 sm:pt-24">
       
       {/* Imagem de Fundo Abrangendo Toda a Tela por Inteiro */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
@@ -47,33 +47,33 @@ export function Hero() {
           </h1>
 
           {/* H1 com Efeito Typewriter */}
-          <div className="pt-14 sm:pt-0">
+          <div>
             <TypewriterHeading />
           </div>
 
           {/* Subtítulo Sucinto */}
-          <p className="text-sm sm:text-base text-slate-200 sm:text-slate-700 sm:dark:text-slate-300 leading-relaxed font-normal drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:drop-shadow-none max-w-lg">
+          <p className="text-xs sm:text-base text-slate-200 sm:text-slate-700 sm:dark:text-slate-300 leading-relaxed font-normal drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:drop-shadow-none max-w-lg">
             Assessoria jurídica especializada dedicada ao exame de contratos de trabalho, jornada extraordinária e cargos de confiança, com condução técnica e sigilosa.
           </p>
 
-          {/* Botões de Conversão */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 pt-1">
+          {/* Botões de Conversão Lado a Lado no Mobile */}
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-nowrap sm:items-center sm:gap-3 pt-1 w-full sm:w-auto">
             <a
               href={buildWhatsAppUrl("Olá, Dr. Marcelo! Vim pelo site da Corrêa Advocacia e gostaria de entender meus direitos trabalhistas.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-xs sm:text-sm shadow-xl hover:bg-[#20ba59] active:scale-98 transition-all whatsapp-glow whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-[11px] sm:text-sm shadow-xl hover:bg-[#20ba59] active:scale-98 transition-all whatsapp-glow text-center"
             >
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               <span>Consultar Advogado</span>
             </a>
 
             <a
               href="#orientacao"
-              className="inline-flex items-center justify-center gap-1.5 px-5 py-3.5 rounded-xl bg-slate-900/80 sm:bg-slate-100 hover:bg-slate-900 sm:hover:bg-slate-200 border border-white/20 sm:border-slate-300 text-white sm:text-slate-800 dark:sm:bg-slate-800 dark:sm:text-white dark:sm:border-slate-700 font-semibold text-xs sm:text-sm transition-all whitespace-nowrap shadow-sm"
+              className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-5 py-3 sm:py-3.5 rounded-xl bg-slate-900/80 sm:bg-slate-100 hover:bg-slate-900 sm:hover:bg-slate-200 border border-white/20 sm:border-slate-300 text-white sm:text-slate-800 dark:sm:bg-slate-800 dark:sm:text-white dark:sm:border-slate-700 font-semibold text-[11px] sm:text-sm transition-all shadow-sm text-center"
             >
-              <span>Conhecer seus Direitos</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>Conhecer <span className="hidden sm:inline">seus </span>Direitos</span>
+              <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
             </a>
           </div>
 
