@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-end sm:justify-center overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pb-12 sm:pb-0">
+    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pt-24 sm:pt-28 pb-12 sm:pb-14">
       
       {/* Imagem de Fundo 100% Nítida Abrangendo Toda a Tela */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
@@ -23,28 +24,31 @@ export function Hero() {
         </picture>
 
         {/* 
-          Degradê invisível e natural integrado à foto:
-          - No Mobile: sombra suave de baixo para cima na área inferior, onde o texto flutua abaixo da mesa.
-          - No Desktop: sombra suave na extrema direita (estante), sem encobrir o rosto do advogado.
+          Degradê suave e integrado à foto:
+          - No Mobile: sombra suave na base para manter os botões legíveis.
+          - No Desktop: sombra suave na lateral direita para dar contraste de leitura nas frases e botões.
         */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/50 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-slate-950/30 sm:to-slate-950/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-slate-950/30 sm:to-slate-950/85" />
       </div>
 
       {/* 
-        Texto Flutuante Sem Caixa/Borda:
-        - Mobile: posicionado na parte inferior (abaixo do rosto/mesa).
-        - Desktop: posicionado na extrema direita sobre a estante, com texto solto, elegante e flutuante.
+        1. CONTAINER DO H1 ÚNICO E SOZINHO NO CANTO SUPERIOR DIREITO (DESKTOP)
+        - Fica no topo direito sobre a estante, com fonte grande e animação de digitação/apagamento
+      */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex justify-end">
+        <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl text-left">
+          <TypewriterHeading />
+        </div>
+      </div>
+
+      {/* 
+        2. SUBTÍTULO, BOTÕES E AVISO NO LUGAR ATUAL (SEM MEXER NA POSIÇÃO INFERIOR)
+        - No mobile fica na base, no desktop permanece abaixo à direita
       */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex justify-end">
         <div className="w-full max-w-sm sm:max-w-md lg:max-w-md text-left space-y-3 sm:space-y-4">
           
-          {/* Título Flutuante com Sombra de Texto para Legibilidade */}
-          <h1 className="text-xl sm:text-2xl lg:text-[28px] font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            Você trabalhou além da conta e assumiu responsabilidades{" "}
-            <span className="text-[#dfcaa8]">sem a remuneração devida?</span>
-          </h1>
-
-          {/* Subtítulo Flutuante */}
+          {/* Subtítulo Sucinto Flutuante */}
           <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-normal drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
             Recupere horas extras sonegadas, anule falsos cargos de confiança e garanta suas indenizações com total sigilo.
           </p>
