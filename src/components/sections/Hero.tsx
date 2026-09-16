@@ -39,10 +39,13 @@ export function Hero() {
         {/* BLOCO 1: TOPO NO MOBILE (CORRÊA ADVOCACIA) */}
         <div className="w-full max-w-xl text-left">
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-snug">
-            <span className="text-[#a37a44] font-black">CORRÊA ADVOCACIA</span>
+            <span className="text-[#a37a44] font-black block sm:inline">CORRÊA ADVOCACIA</span>
             <span className="hidden sm:inline">
               <span className="text-[#a37a44] font-black"> • </span>
               <span className="text-slate-900 dark:text-slate-100">Atuação trabalhista estratégica em todo o Brasil</span>
+            </span>
+            <span className="block sm:hidden text-[11px] font-semibold text-slate-900 dark:text-slate-100 tracking-normal mt-0.5">
+              Atuação trabalhista estratégica em todo o Brasil
             </span>
           </h1>
         </div>
