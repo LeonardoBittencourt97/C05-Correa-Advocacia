@@ -37,6 +37,14 @@ export function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="w-full max-w-xl text-left space-y-5 sm:space-y-6">
           
+          {/* Tag de Autoridade Institucional */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/10 dark:bg-white/10 sm:bg-amber-500/10 border border-slate-700/20 sm:border-[#a37a44]/30 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-[#a37a44] animate-pulse" />
+            <span className="text-[11px] sm:text-xs font-bold tracking-wide uppercase text-slate-900 sm:text-[#8a6432] dark:text-amber-200">
+              CORRÊA ADVOCACIA • Atuação trabalhista estratégica em todo o Brasil
+            </span>
+          </div>
+
           {/* H1 com Efeito Typewriter */}
           <div>
             <TypewriterHeading />
