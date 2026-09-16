@@ -11,6 +11,8 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOfficeOpen, setMobileOfficeOpen] = useState(false);
+  const [mobileRightsOpen, setMobileRightsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -200,80 +202,127 @@ export function Header() {
         </div>
       </div>
 
-      {/* MENU MOBILE EXPANDIDO - FUNDO BRANCO FIXO COM TODAS AS SEÇÕES */}
+      {/* MENU MOBILE EXPANDIDO - COM SUBMENUS E ORGANIZAÇÃO IDÊNTICA AO DESKTOP */}
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-200 px-6 py-6 space-y-4 animate-fade-in shadow-2xl">
-          <Link
-            href="/#escritorio"
-            onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
-          >
-            O Escritório
-          </Link>
-          <Link
-            href="/#advogado"
-            onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
-          >
-            Dr. Marcelo Miguel Corrêa Junior
-          </Link>
-          <Link
-            href="/#especialidades"
-            onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
-          >
-            Casos Estratégicos
-          </Link>
-          <Link
-            href="/#o-que-cobrar"
-            onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
-          >
-            O Que Pode Ser Cobrado
-          </Link>
-          <Link
-            href="/#prazo"
-            onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
-          >
-            Atenção ao Prazo (2 Anos)
-          </Link>
-          <Link
-            href="/#como-funciona"
-            onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
-          >
-            Como Funciona na Prática
-          </Link>
+        <div className="md:hidden bg-white border-b border-gray-200 px-6 py-6 space-y-3 animate-fade-in shadow-2xl max-h-[85vh] overflow-y-auto">
+          
+          {/* Item 1 Mobile: O Escritório com Submenu */}
+          <div className="border-b border-gray-100 pb-2">
+            <button
+              onClick={() => setMobileOfficeOpen(!mobileOfficeOpen)}
+              className="flex items-center justify-between w-full text-sm font-semibold text-slate-800 hover:text-[#a37a44] py-1.5 focus:outline-none"
+            >
+              <span>O Escritório</span>
+              <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${mobileOfficeOpen ? "rotate-180 text-[#a37a44]" : ""}`} />
+            </button>
+
+            {mobileOfficeOpen && (
+              <div className="pl-3 pr-1 pt-2 pb-1 space-y-2 border-l-2 border-amber-200 ml-1 mt-1 animate-fade-in">
+                <Link
+                  href="/#escritorio"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-xs font-medium text-slate-700 hover:text-[#a37a44] py-1"
+                >
+                  <span className="font-bold block text-slate-900">Sobre o Escritório</span>
+                  <span className="text-[11px] text-slate-500">12 anos de história e sede no Batel</span>
+                </Link>
+                <Link
+                  href="/#advogado"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-xs font-medium text-slate-700 hover:text-[#a37a44] py-1"
+                >
+                  <span className="font-bold block text-slate-900">Dr. Marcelo Miguel Corrêa Junior</span>
+                  <span className="text-[11px] text-slate-500">Advogado titular e sócio-fundador</span>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Item 2 Mobile: Seus Direitos com Submenu */}
+          <div className="border-b border-gray-100 pb-2">
+            <button
+              onClick={() => setMobileRightsOpen(!mobileRightsOpen)}
+              className="flex items-center justify-between w-full text-sm font-semibold text-slate-800 hover:text-[#a37a44] py-1.5 focus:outline-none"
+            >
+              <span>Seus Direitos</span>
+              <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${mobileRightsOpen ? "rotate-180 text-[#a37a44]" : ""}`} />
+            </button>
+
+            {mobileRightsOpen && (
+              <div className="pl-3 pr-1 pt-2 pb-1 space-y-2 border-l-2 border-amber-200 ml-1 mt-1 animate-fade-in">
+                <Link
+                  href="/#especialidades"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-xs font-medium text-slate-700 hover:text-[#a37a44] py-1"
+                >
+                  <span className="font-bold block text-slate-900">Casos Estratégicos</span>
+                  <span className="text-[11px] text-slate-500">Horas extras, Burnout, cargos de confiança</span>
+                </Link>
+                <Link
+                  href="/#o-que-cobrar"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-xs font-medium text-slate-700 hover:text-[#a37a44] py-1"
+                >
+                  <span className="font-bold block text-slate-900">O Que Pode Ser Cobrado</span>
+                  <span className="text-[11px] text-slate-500">10 verbas além da rescisão simples</span>
+                </Link>
+                <Link
+                  href="/#prazo"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-xs font-medium text-slate-700 hover:text-[#a37a44] py-1"
+                >
+                  <span className="font-bold block text-slate-900">Atenção ao Prazo</span>
+                  <span className="text-[11px] text-slate-500">2 anos para agir (Art. 7º da CF)</span>
+                </Link>
+                <Link
+                  href="/#como-funciona"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-xs font-medium text-slate-700 hover:text-[#a37a44] py-1"
+                >
+                  <span className="font-bold block text-slate-900">Como Funciona o Processo</span>
+                  <span className="text-[11px] text-slate-500">Do primeiro contato até a sentença</span>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Item 3 Mobile: Avaliações */}
           <Link
             href="/#avaliacoes"
             onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44] py-1.5"
           >
-            Avaliações de Clientes
+            Avaliações
           </Link>
+
+          {/* Item 4 Mobile: Dúvidas (FAQ) */}
           <Link
             href="/#faq"
             onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44] py-1.5"
           >
-            Dúvidas Frequentes
+            Dúvidas
           </Link>
+
+          {/* Item 5 Mobile: Orientação Jurídica */}
           <Link
             href="/#orientacao"
             onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-[#a37a44]"
+            className="block text-sm font-bold text-[#a37a44] py-1.5"
           >
             Orientação Jurídica
           </Link>
+
+          {/* Item 6 Mobile: Contato e Localização */}
           <Link
             href="/#contato"
             onClick={() => setIsOpen(false)}
-            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44] py-1.5"
           >
-            Contato e Localização
+            Contato
           </Link>
 
+          {/* Ação WhatsApp no Mobile */}
           <div className="pt-3 border-t border-gray-100">
             <a
               href={buildWhatsAppUrl()}
