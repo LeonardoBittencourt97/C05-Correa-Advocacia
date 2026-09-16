@@ -44,8 +44,8 @@ export default function LinksPage() {
         </div>
       </div>
 
-      {/* BLOCO DE CONTEÚDO: No Desktop fica no canto esquerdo; No Mobile fica centralizado */}
-      <div className="w-full max-w-sm mx-auto md:mx-0 md:ml-8 lg:ml-16 xl:ml-24 relative z-10 flex flex-col items-center space-y-6 my-auto bg-slate-950/85 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-[#c5a880]/30 shadow-2xl">
+      {/* BLOCO DE CONTEÚDO: No Desktop fica no lado direito da tela; No Mobile fica centralizado */}
+      <div className="w-full max-w-sm mx-auto md:mx-0 md:ml-auto md:mr-8 lg:mr-16 xl:mr-24 relative z-10 flex flex-col items-center space-y-6 my-auto bg-slate-950/85 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-[#c5a880]/30 shadow-2xl">
         
         {/* LOGO OFICIAL TRANSPARENTE COM LINK PARA HOME */}
         <Link
@@ -142,8 +142,8 @@ export default function LinksPage() {
         </div>
       </div>
 
-      {/* Rodapé Minimalista: alinhado à esquerda no desktop e centralizado no mobile */}
-      <footer className="w-full text-center md:text-left md:ml-8 lg:ml-16 xl:ml-24 text-[10px] text-white/90 pt-4 relative z-10 flex items-center justify-center md:justify-start gap-1.5 drop-shadow">
+      {/* Rodapé Minimalista: alinhado à direita no desktop e centralizado no mobile */}
+      <footer className="w-full text-center md:text-right md:ml-auto md:mr-8 lg:mr-16 xl:mr-24 text-[10px] text-white/90 pt-4 relative z-10 flex items-center justify-center md:justify-end gap-1.5 drop-shadow">
         <Shield className="w-3 h-3 text-[#c5a880]" />
         <span>Batel, Curitiba/PR • Atendimento em Todo o Brasil</span>
       </footer>
