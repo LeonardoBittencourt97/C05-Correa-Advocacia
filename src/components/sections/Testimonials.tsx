@@ -1,19 +1,44 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Star, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
 import { testimonials } from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function Testimonials() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isHovered = useRef(false);
 
-  // Duplicamos a lista para criar um loop contínuo infinito e sem saltos visuais
-  const loopedReviews = [...testimonials, ...testimonials, ...testimonials];
+  // Duplicação para permitir loop contínuo infinito
+  const loopedReviews = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
 
-  const scroll = (direction: "left" | "right") => {
+  // Rotação contínua automática garantida via requestAnimationFrame (não depende de CSS que possa falhar)
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let animationFrameId: number;
+    const speed = 0.75; // pixels por frame
+
+    const step = () => {
+      if (!isHovered.current && el) {
+        el.scrollLeft += speed;
+        // Quando rolar metade do conteúdo, reseta suavemente para o início sem o usuário perceber
+        if (el.scrollLeft >= el.scrollWidth / 2) {
+          el.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
+  const handleManualScroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 380;
+      const scrollAmount = 360;
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -59,18 +84,18 @@ export function Testimonials() {
             </h2>
           </div>
 
-          {/* Botões Manuais de Navegação (Esquerda / Direita) */}
+          {/* Botões Manuais de Navegação */}
           <div className="flex items-center gap-3 self-start md:self-end">
             <button
-              onClick={() => scroll("left")}
-              className="p-3 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all shadow-sm active:scale-95"
+              onClick={() => handleManualScroll("left")}
+              className="p-3 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all shadow-sm active:scale-95 cursor-pointer"
               aria-label="Ver avaliações anteriores"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
-              onClick={() => scroll("right")}
-              className="p-3 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all shadow-sm active:scale-95"
+              onClick={() => handleManualScroll("right")}
+              className="p-3 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all shadow-sm active:scale-95 cursor-pointer"
               aria-label="Ver próximas avaliações"
             >
               <ChevronRight className="w-5 h-5" />
@@ -78,48 +103,56 @@ export function Testimonials() {
           </div>
         </div>
 
-        {/* 
-          Carrossel Infinito em Marquee Suave com Suporte a Scroll Manual
-          Pausa suave ao passar o mouse para facilitar a leitura completa
-        */}
-        <div className="relative group">
+        {/* Carrossel com Scroll Automático Infinito JS */}
+        <div
+          className="relative"
+          onMouseEnter={() => {
+            isHovered.current = true;
+          }}
+          onMouseLeave={() => {
+            isHovered.current = false;
+          }}
+          onTouchStart={() => {
+            isHovered.current = true;
+          }}
+          onTouchEnd={() => {
+            isHovered.current = false;
+          }}
+        >
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-4 cursor-grab active:cursor-grabbing"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            className="flex gap-6 overflow-x-hidden scroll-smooth pb-4"
           >
-            <div className="flex gap-6 animate-marquee group-hover:[animation-play-state:paused] shrink-0">
-              {loopedReviews.map((review, idx) => (
-                <div
-                  key={idx}
-                  className="w-[320px] sm:w-[380px] shrink-0 card-elevated rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
-                >
-                  <div>
-                    {/* 5 Estrelas Douradas */}
-                    <div className="flex items-center gap-1 mb-3 text-[#FBBC05]">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-
-                    {/* Texto Real da Avaliação */}
-                    <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed italic font-normal">
-                      "{review.text}"
-                    </p>
+            {loopedReviews.map((review, idx) => (
+              <div
+                key={idx}
+                className="w-[310px] sm:w-[370px] shrink-0 card-elevated rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 select-none"
+              >
+                <div>
+                  {/* 5 Estrelas Douradas */}
+                  <div className="flex items-center gap-1 mb-3 text-[#FBBC05]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
                   </div>
 
-                  {/* Apenas o Nome do Autor (Sem texto de 'cliente há 4 meses') */}
-                  <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                    <h4 className="font-bold text-sm text-slate-900 dark:text-white">
-                      {review.author}
-                    </h4>
-                    <span className="text-[11px] font-medium text-slate-400 dark:text-slate-500">
-                      Google
-                    </span>
-                  </div>
+                  {/* Texto Real da Avaliação */}
+                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed italic font-normal">
+                    "{review.text}"
+                  </p>
                 </div>
-              ))}
-            </div>
+
+                {/* Nome do Autor e Selo Google */}
+                <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                  <h4 className="font-bold text-sm text-slate-900 dark:text-white">
+                    {review.author}
+                  </h4>
+                  <span className="text-[11px] font-medium text-slate-400 dark:text-slate-500">
+                    Google
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

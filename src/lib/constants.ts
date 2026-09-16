@@ -31,78 +31,58 @@ export const defaultWhatsAppMessage =
 
 export const services = [
   {
-    id: "bancarios",
-    title: "Ações Trabalhistas Bancárias",
-    tag: "Especialidade Principal",
-    description:
-      "Atuação focada na recuperação de direitos sonegados a bancários e financiários: 7ª e 8ª horas extras, quebra de caixa e gratificações.",
-    highlights: [
-      "Fraude no enquadramento de cargo de confiança (Art. 224, § 2º da CLT)",
-      "Recuperação das 7ª e 8ª horas diárias trabalhadas",
-      "Integração de PLR e gratificações suprimidas",
-      "Diferenças salariais por substituições e transferências",
-    ],
+    id: "rescisao-nao-paga",
+    number: "01",
+    title: "Rescisão não paga",
+    description: "O acerto tem prazo de 10 dias. Passou disso, virou dívida da empresa com multa.",
   },
   {
-    id: "cargo-de-confianca",
-    title: "Descaracterização de Cargo de Confiança",
-    tag: "Direito Trabalhista",
-    description:
-      "Muitos profissionais são nomeados 'gerentes' ou 'coordenadores' apenas no papel, sem poder de mando real, exclusivamente para afastar o pagamento de horas extras legítimas.",
-    highlights: [
-      "Comprovação de ausência de poderes de gestão efetivos",
-      "Cobrança de horas extras integrais com reflexos em FGTS, 13º e férias",
-      "Proteção e respaldo em caso de sobrejornada contínua",
-    ],
+    id: "hora-extra-nao-paga",
+    number: "02",
+    title: "Hora extra não paga",
+    description: "Você ficava além do horário e o holerite continuava igual, sem o pagamento devido.",
   },
   {
-    id: "doencas-ocupacionais",
-    title: "Doenças Ocupacionais & Burnout",
-    tag: "Saúde do Trabalhador",
-    description:
-      "Defesa de trabalhadores acometidos por esgotamento profissional decorrente de metas abusivas, cobranças desmedidas ou assédio.",
-    highlights: [
-      "Síndrome de Burnout, transtornos de ansiedade e depressão",
-      "LER/DORT causadas por esforços repetitivos e ergonomia inadequada",
-      "Indenizações por danos morais, materiais e pensão vitalícia",
-      "Estabilidade provisória acidentária no emprego",
-    ],
+    id: "sem-carteira-assinada",
+    number: "03",
+    title: "Sem carteira assinada",
+    description: "Com horário, ordem e salário existe vínculo de emprego, mesmo sem registro formal.",
   },
   {
-    id: "assedio-moral",
-    title: "Assédio Moral & Metas Abusivas",
-    tag: "Integridade Profissional",
-    description:
-      "Combate judicial contra situações humilhantes, perseguições internas, rankings vexatórios de metas e isolamento de funcionários.",
-    highlights: [
-      "Pedido de rescisão indireta (demissão forçada do empregador)",
-      "Recebimento de todas as verbas rescisórias como demissão sem justa causa",
-      "Indenizações exemplares por danos morais",
-    ],
+    id: "justa-causa-injusta",
+    number: "04",
+    title: "Justa causa injusta",
+    description: "Sem motivo grave e provado, ela cai na justiça e todas as suas verbas rescisórias voltam.",
   },
   {
-    id: "equiparacao-salarial",
-    title: "Equiparação Salarial & Desvio de Função",
-    tag: "Justiça Remuneratória",
-    description:
-      "Exercer a mesma função de colegas recebendo remuneração inferior é ilegal. Reivindicamos as diferenças salariais retroativas devidas.",
-    highlights: [
-      "Identificação de paradigmas que exerciam o mesmo trabalho",
-      "Diferenças salariais com reflexos em todas as verbas trabalhistas",
-      "Reenquadramento de função",
-    ],
+    id: "assedio-humilhacao",
+    number: "05",
+    title: "Assédio e humilhação",
+    description: "Gritar, humilhar na frente dos outros e ameaçar gera indenização por dano moral.",
   },
   {
-    id: "rescisao-verbas",
-    title: "Verbas Rescisórias & Justa Causa Injusta",
-    tag: "Segurança Financeira",
-    description:
-      "Análise minuciosa de rescisões contratuais para apuração de valores não pagos e reversão de demissões por justa causa indevidas.",
-    highlights: [
-      "Reversão de justa causa com liberação imediata do FGTS + 40%",
-      "Acesso ao seguro-desemprego e pagamento de aviso prévio",
-      "Multa dos artigos 467 e 477 da CLT por atraso rescisório",
-    ],
+    id: "acidente-trabalho",
+    number: "06",
+    title: "Acidente e Doença de Trabalho",
+    description: "No serviço, no trajeto, LER/DORT, Burnout, depressão ou problema de coluna e audição.",
+  },
+  {
+    id: "fgts-nao-depositado",
+    number: "07",
+    title: "FGTS não depositado",
+    description: "O depósito é obrigação de todo mês. Dá para cobrar judicialmente tudo o que faltou.",
+  },
+  {
+    id: "risco-sem-adicional",
+    number: "08",
+    title: "Risco sem adicional",
+    description: "Insalubridade ou periculosidade: produto químico, ruído alto, calor, energia ou moto.",
+  },
+  {
+    id: "salario-atrasado",
+    number: "09",
+    title: "Salário atrasado",
+    description: "Salário atrasado tem saída legal: a rescisão indireta com recebimento integral de direitos.",
   },
 ] as const;
 

@@ -1,13 +1,37 @@
 import { services } from "@/lib/constants";
-import { Check, MessageCircle, ArrowRight } from "lucide-react";
+import { 
+  Banknote, 
+  Clock, 
+  FileText, 
+  FileX, 
+  MessageSquareWarning, 
+  ShieldAlert, 
+  Coins, 
+  AlertTriangle, 
+  CalendarClock,
+  ArrowRight
+} from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+
+// Ícones correspondentes a cada um dos 9 casos do print
+const ICONS = [
+  Banknote,
+  Clock,
+  FileText,
+  FileX,
+  MessageSquareWarning,
+  ShieldAlert,
+  Coins,
+  AlertTriangle,
+  CalendarClock,
+];
 
 export function Specialization() {
   return (
     <section id="especialidades" className="py-20 bg-slate-50 dark:bg-[#07080b] relative transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Cabeçalho de Argumentação da Landing Page */}
+        {/* Cabeçalho da Seção */}
         <div className="max-w-2xl mb-12 text-left">
           <span className="text-xs font-bold uppercase tracking-widest text-[#a37a44] dark:text-[#dfcaa8] block mb-2">
             Áreas de Foco Estratégico
@@ -16,60 +40,62 @@ export function Specialization() {
             Em qual destas situações você se reconhece?
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2">
-            Identificamos com precisão se os seus direitos contratuais foram respeitados ou sonegados.
+            Identificamos com precisão se os seus direitos foram violados ou sonegados pela empresa ou banco.
           </p>
         </div>
 
-        {/* 3 Cards de Alto Contraste e Escaneabilidade em Tópicos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.slice(0, 3).map((service) => (
-            <div
-              key={service.id}
-              className="card-elevated rounded-2xl p-7 flex flex-col justify-between group shadow-sm hover:shadow-lg"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="inline-block px-2.5 py-1 rounded-md text-[11px] font-bold tracking-wide bg-slate-100 dark:bg-slate-800 text-[#a37a44] dark:text-[#dfcaa8]">
-                    {service.tag}
-                  </span>
+        {/* Grid dos 9 Casos Idêntico ao Layout do Print */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => {
+            const Icon = ICONS[index % ICONS.length];
+            return (
+              <div
+                key={service.id}
+                className="relative bg-white dark:bg-[#0e121a] rounded-2xl p-6 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-[#a37a44]/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+              >
+                {/* Detalhe Dourado no Canto Superior Direito como no Print */}
+                <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden pointer-events-none">
+                  <div className="absolute transform rotate-45 bg-[#c5a880]/30 -top-4 -right-4 w-8 h-8" />
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-[#a37a44] dark:group-hover:text-[#dfcaa8] transition-colors mb-2.5">
-                  {service.title}
-                </h3>
-                
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                  {service.description}
-                </p>
+                <div>
+                  {/* Topo do Card: Ícone Dourado e Número */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-[#a37a44] dark:text-[#dfcaa8]">
+                      <Icon className="w-5 h-5 stroke-[1.8]" />
+                    </div>
+                    <span className="text-xs font-mono font-bold text-slate-400 dark:text-slate-600">
+                      {service.number}
+                    </span>
+                  </div>
 
-                {/* Recursos e Benefícios em Tópicos */}
-                <ul className="space-y-2.5 mb-6 text-xs text-slate-700 dark:text-slate-300">
-                  {service.highlights.slice(0, 3).map((h, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
-                      <span className="leading-snug">{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  {/* Título do Caso */}
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#a37a44] dark:group-hover:text-[#dfcaa8] transition-colors">
+                    {service.title}
+                  </h3>
 
-              {/* Botão de Chamada para Ação */}
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <a
-                  href={buildWhatsAppUrl(`Olá, Dr. Marcelo! Me identifiquei com a situação de: ${service.title}. Gostaria de entender meus direitos.`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between text-xs font-bold text-[#25D366] hover:text-[#20ba59] transition-colors"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <MessageCircle className="w-4 h-4" />
-                    Consultar este caso
-                  </span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  {/* Descrição Curta e Direta */}
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Botão de Ação: 'MEU CASO →' */}
+                <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80">
+                  <a
+                    href={buildWhatsAppUrl(`Olá, Dr. Marcelo! Me identifiquei com o caso [${service.number} - ${service.title}]. Gostaria de entender meus direitos.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#a37a44] dark:text-[#dfcaa8] hover:text-[#785223] dark:hover:text-white uppercase tracking-wider transition-colors"
+                  >
+                    <span>MEU CASO</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
