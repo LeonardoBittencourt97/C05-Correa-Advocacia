@@ -62,15 +62,14 @@ export function FloatingWhatsApp() {
         </div>
       )}
 
-      {/* Botão de WhatsApp com efeito de pulso */}
+      {/* Botão de WhatsApp Estático e Discreto (Compliance OAB) */}
       <a
         href={buildWhatsAppUrl()}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 whatsapp-glow focus:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50"
+        className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/50"
         aria-label="Iniciar conversa confidencial com o Dr. Marcelo Corrêa pelo WhatsApp"
       >
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping" />
         <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 relative z-10" />
       </a>
     </aside>
