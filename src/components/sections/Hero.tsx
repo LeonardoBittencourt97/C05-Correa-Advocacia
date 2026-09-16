@@ -10,7 +10,7 @@ export function Hero() {
       {/* Imagem de Fundo Abrangendo Toda a Tela por Inteiro */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <picture className="w-full h-full block">
-          <source media="(max-width: 767px)" srcSet="/images/headermobile.jpeg" />
+          <source media="(max-width: 767px)" srcSet="/images/heroatualizadomobile.jpeg" />
           <source media="(min-width: 768px)" srcSet="/images/headerdesktop.jpeg" />
           <Image
             src="/images/headerdesktop.jpeg"
