@@ -5,7 +5,7 @@ import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pt-24 pb-14 sm:py-28">
+    <section className="relative h-screen min-h-screen flex items-center overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pt-20 sm:pt-24">
       
       {/* Imagem de Fundo Abrangendo Toda a Tela por Inteiro */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">

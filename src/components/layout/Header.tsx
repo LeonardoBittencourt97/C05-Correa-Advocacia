@@ -27,13 +27,7 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white border-b border-gray-200 shadow-md"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-md transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* LOGO OFICIAL - IMAGEM PRESERVADA */}
@@ -54,14 +48,8 @@ export function Header() {
           </div>
         </Link>
 
-        {/* NAVEGAÇÃO: PADRÃO, COMPLETA E COM SUBMENUS */}
-        <nav
-          className={`hidden md:flex items-center gap-6 lg:gap-8 text-xs sm:text-sm font-semibold transition-colors ${
-            isScrolled
-              ? "text-slate-800"
-              : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
-          }`}
-        >
+        {/* NAVEGAÇÃO: PADRÃO, COMPLETA E COM SUBMENUS — TEXTO SEMPRE ESCURO */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs sm:text-sm font-semibold text-slate-800">
           {/* Item 1: O Escritório com Submenu incluindo Dr. Marcelo */}
           <div className="relative group py-2">
             <button
@@ -97,9 +85,7 @@ export function Header() {
           {/* Item 2: Casos e Direitos com Submenu */}
           <div className="relative group py-2">
             <button
-              className={`flex items-center gap-1 focus:outline-none cursor-pointer ${
-                isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"
-              }`}
+              className="flex items-center gap-1 focus:outline-none cursor-pointer hover:text-[#a37a44] transition-colors"
             >
               <span>Seus Direitos</span>
               <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
@@ -140,10 +126,10 @@ export function Header() {
             </div>
           </div>
 
-          {/* Item 3: Avaliações (Apontando diretamente para #avaliacoes) */}
+          {/* Item 3: Avaliações */}
           <Link
             href="/#avaliacoes"
-            className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
+            className="hover:text-[#a37a44] transition-colors"
           >
             Avaliações
           </Link>
@@ -151,7 +137,7 @@ export function Header() {
           {/* Item 4: Dúvidas (FAQ) */}
           <Link
             href="/#faq"
-            className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
+            className="hover:text-[#a37a44] transition-colors"
           >
             Dúvidas
           </Link>
@@ -159,7 +145,7 @@ export function Header() {
           {/* Item 5: Faça seu Diagnóstico */}
           <Link
             href="/#orientacao"
-            className={isScrolled ? "text-[#a37a44] hover:opacity-80 transition-opacity" : "text-[#dfcaa8] hover:text-white transition-colors"}
+            className="text-[#a37a44] hover:opacity-80 transition-opacity font-bold"
           >
             Faça seu Diagnóstico
           </Link>
@@ -167,7 +153,7 @@ export function Header() {
           {/* Item 6: Contato & Sede */}
           <Link
             href="/#contato"
-            className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
+            className="hover:text-[#a37a44] transition-colors"
           >
             Contato
           </Link>
@@ -201,11 +187,7 @@ export function Header() {
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`p-2 rounded-lg border transition-colors ${
-              isScrolled
-                ? "border-gray-200 text-slate-800 bg-white"
-                : "border-white/30 text-white bg-black/40 backdrop-blur-sm"
-            }`}
+            className="p-2 rounded-lg border border-gray-200 text-slate-800 bg-white transition-colors"
             aria-label={isOpen ? "Fechar Menu" : "Abrir Menu"}
             aria-expanded={isOpen}
           >
