@@ -52,8 +52,8 @@ export function Hero() {
           <TypewriterHeading />
         </div>
 
-        {/* BLOCO 3: BASE INFERIOR ANCORADA (Subtítulo + Botões Lado a Lado) - ELEVADO SUAVEMENTE NO MOBILE */}
-        <div className="w-full max-w-xl text-left space-y-4 sm:space-y-6 sm:pt-6 -translate-y-4 sm:translate-y-0">
+        {/* BLOCO 3: BASE INFERIOR ANCORADA (Subtítulo + Botões Lado a Lado) - ELEVADO NO MOBILE */}
+        <div className="w-full max-w-xl text-left space-y-4 sm:space-y-6 sm:pt-6 -translate-y-12 sm:translate-y-0">
           {/* Subtítulo Sucinto */}
           <p className="text-xs sm:text-base text-slate-200 sm:text-slate-700 sm:dark:text-slate-300 leading-relaxed font-normal drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:drop-shadow-none max-w-lg">
             Assessoria jurídica especializada dedicada ao exame de contratos de trabalho, jornada extraordinária e cargos de confiança, com condução técnica e sigilosa.
