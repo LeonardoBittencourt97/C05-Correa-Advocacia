@@ -115,7 +115,7 @@ const TIMINGS: Option[] = [
   {
     id: "outro_momento",
     label: "Outra condição contratual",
-    sub: "Avaliar prazos e condições diretamente com o advogado",
+    sub: "Consultar prazos e condições diretamente com o advogado",
     isCustom: true,
   },
 ];

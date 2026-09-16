@@ -283,7 +283,7 @@ export function Header() {
               className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white font-bold text-sm shadow-md"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>Avaliar Meu Caso no WhatsApp</span>
+              <span>Falar no WhatsApp</span>
             </a>
           </div>
         </div>

@@ -73,7 +73,7 @@ export function About() {
             {/* Garantia de Sigilo & CTA */}
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
               <a
-                href={buildWhatsAppUrl("Olá, Dr. Marcelo! Gostaria de uma avaliação confidencial com o senhor sobre o meu caso.")}
+                href={buildWhatsAppUrl("Olá, Dr. Marcelo! Gostaria de uma orientação confidencial com o senhor sobre o meu caso.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-sm hover:bg-[#20ba59] active:scale-98 transition-all whatsapp-glow"

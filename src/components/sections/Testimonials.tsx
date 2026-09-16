@@ -165,7 +165,7 @@ export function Testimonials() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white font-bold text-xs sm:text-sm hover:bg-[#20ba59] active:scale-98 transition-all shadow-md whatsapp-glow"
           >
             <MessageCircle className="w-4 h-4" />
-            <span>Quero Avaliar Meu Caso com Segurança</span>
+            <span>Falar com o Escritório no WhatsApp</span>
           </a>
         </div>
 

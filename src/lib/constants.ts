@@ -6,7 +6,7 @@ export const company = {
   oab: "OAB/PR",
   experienceYears: 12,
   description:
-    "Advocacia trabalhista especializada com atuação estratégica na defesa de bancários e trabalhadores de todo o Brasil. Foco em cargos de confiança fraudulentos, 7ª e 8ª horas, assédio moral e doenças ocupacionais.",
+    "Advocacia trabalhista especializada com atuação estratégica na defesa de bancários e trabalhadores de todo o Brasil. Foco em descaracterização de cargos de confiança, 7ª e 8ª horas, assédio moral e doenças ocupacionais.",
   domain: "correaadvocacia.com.br",
   phone: "(41) 99919-4144",
   phoneRaw: "5541999194144",
