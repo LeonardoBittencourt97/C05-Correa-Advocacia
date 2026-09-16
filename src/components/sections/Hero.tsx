@@ -5,7 +5,7 @@ import { TypewriterHeading } from "@/components/ui/TypewriterHeading";
 
 export function Hero() {
   return (
-    <section className="relative h-screen min-h-screen flex items-end sm:items-center overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pb-6 sm:pb-0 pt-20 sm:pt-24">
+    <section className="relative h-screen min-h-screen flex items-center overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80">
       
       {/* Imagem de Fundo Abrangendo Toda a Tela por Inteiro */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
@@ -32,12 +32,12 @@ export function Hero() {
       </div>
 
       {/* 
-        CONTAINER ÚNICO: TEXTOS E BOTÕES JUNTOS NA LATERAL ESQUERDA (ALINHADOS NO MEIO)
+        CONTAINER MODULAR: BLOCOS SEPARADOS NO MOBILE (TOPO, MEIO INDEPENDENTE E BASE INFERIOR)
       */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="w-full max-w-xl text-left space-y-5 sm:space-y-6">
-          
-          {/* H1 Institucional em Destaque */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full h-full flex flex-col justify-between sm:justify-center pt-24 pb-6 sm:py-0">
+        
+        {/* BLOCO 1: TOPO NO MOBILE (CORRÊA ADVOCACIA) */}
+        <div className="w-full max-w-xl text-left">
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-snug">
             <span className="text-[#a37a44] font-black">CORRÊA ADVOCACIA</span>
             <span className="hidden sm:inline">
@@ -45,12 +45,15 @@ export function Hero() {
               <span className="text-slate-900 dark:text-slate-100">Atuação trabalhista estratégica em todo o Brasil</span>
             </span>
           </h1>
+        </div>
 
-          {/* H1 com Efeito Typewriter */}
-          <div>
-            <TypewriterHeading />
-          </div>
+        {/* BLOCO 2: MEIO INDEPENDENTE (Você tem dúvidas sobre...) - DESLOCADO PARA CIMA NO MOBILE */}
+        <div className="w-full max-w-xl text-left my-auto sm:my-0 sm:pt-6 -translate-y-6 sm:translate-y-0">
+          <TypewriterHeading />
+        </div>
 
+        {/* BLOCO 3: BASE INFERIOR ANCORADA (Subtítulo + Botões Lado a Lado) */}
+        <div className="w-full max-w-xl text-left space-y-4 sm:space-y-6 sm:pt-6">
           {/* Subtítulo Sucinto */}
           <p className="text-xs sm:text-base text-slate-200 sm:text-slate-700 sm:dark:text-slate-300 leading-relaxed font-normal drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:drop-shadow-none max-w-lg">
             Assessoria jurídica especializada dedicada ao exame de contratos de trabalho, jornada extraordinária e cargos de confiança, com condução técnica e sigilosa.
