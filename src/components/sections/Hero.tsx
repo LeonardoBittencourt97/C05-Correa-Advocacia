@@ -47,8 +47,8 @@ export function Hero() {
           </h1>
         </div>
 
-        {/* BLOCO 2: MEIO INDEPENDENTE (Você tem dúvidas sobre...) - DESLOCADO PARA CIMA NO MOBILE */}
-        <div className="w-full max-w-xl text-left my-auto sm:my-0 sm:pt-6 -translate-y-6 sm:translate-y-0">
+        {/* BLOCO 2: MEIO INDEPENDENTE (Você tem dúvidas sobre...) - POSICIONADO NO ESPAÇO EM BRANCO NO MOBILE */}
+        <div className="w-full max-w-xl text-left my-auto sm:my-0 sm:pt-6 translate-y-14 sm:translate-y-0">
           <TypewriterHeading />
         </div>
 
