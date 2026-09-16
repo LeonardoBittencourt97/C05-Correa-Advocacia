@@ -5,11 +5,24 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function FirmSection() {
   return (
-    <section id="escritorio" className="py-20 bg-white dark:bg-[#07080b] relative border-b border-slate-200 dark:border-slate-800 transition-colors">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="escritorio" className="py-20 bg-white dark:bg-[#07080b] relative border-b border-slate-200 dark:border-slate-800 transition-colors overflow-hidden">
+      {/* Imagem de Fundo Exclusiva para Mobile */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none block sm:hidden">
+        <Image
+          src="/images/header-mobile.jpeg"
+          alt="Dr. Marcelo Miguel Corrêa Junior"
+          fill
+          quality={90}
+          className="object-cover object-[70%_top] opacity-25 dark:opacity-20 filter"
+        />
+        {/* Degradê para legibilidade absoluta do conteúdo no mobile */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/95 dark:from-[#07080b]/90 dark:via-[#07080b]/85 dark:to-[#07080b]/95" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* CARD ESPECIAL COM LOGO EM FUNDO BRANCO E AUTORIDADE EM SISTEMA */}
-        <div className="rounded-3xl card-elevated p-6 sm:p-12 transition-all">
+        <div className="rounded-3xl card-elevated p-6 sm:p-12 transition-all backdrop-blur-sm sm:backdrop-blur-none bg-white/90 dark:bg-slate-900/90 sm:bg-white sm:dark:bg-[#0c1017]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Bloco Visual com a Logo Oficial de Fundo Branco */}
