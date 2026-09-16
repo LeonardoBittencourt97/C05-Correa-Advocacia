@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, ArrowRight, ShieldCheck, HeartHandshake, MessageCircle } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck, HeartHandshake, MessageCircle, HelpCircle } from "lucide-react";
 import { buildLeadQualifiedWhatsAppUrl, LeadAnswers } from "@/lib/whatsapp";
 
 interface Option {
   id: string;
   label: string;
   sub?: string;
+  isCustom?: boolean;
 }
 
 const CATEGORIES: Option[] = [
@@ -19,53 +20,103 @@ const CATEGORIES: Option[] = [
   {
     id: "outro_setor",
     label: "Outro Setor Trabalhista / CLT",
-    sub: "Comércio, indústria, saúde, serviços ou empresas de tecnologia",
+    sub: "Comércio, indústria, saúde, transporte, serviços ou tecnologia",
   },
   {
     id: "ex_colaborador",
     label: "Ex-Colaborador em Transição",
     sub: "Dúvidas sobre rescisão, valores retidos ou direitos pendentes",
   },
+  {
+    id: "outra_categoria",
+    label: "Outra modalidade de trabalho",
+    sub: "Quero falar diretamente com o advogado para entender meu enquadramento",
+    isCustom: true,
+  },
 ];
 
+// Mapeamento dos 9 casos reais estratégicos + opção aberta
 const SITUATIONS: Option[] = [
   {
-    id: "horas_confianca",
-    label: "7ª e 8ª horas / Falso Cargo de Confiança",
-    sub: "Sem autonomia de gestão real, mas com jornadas diárias extenuantes não pagas",
+    id: "rescisao_nao_paga",
+    label: "01. Rescisão não paga ou calculada errada",
+    sub: "Prazo de 10 dias descumprido, valores retidos ou cálculo rescisório incorreto",
   },
   {
-    id: "burnout_assedio",
-    label: "Burnout, Doença Ocupacional ou Assédio",
-    sub: "Cobranças abusivas de metas, adoecimento psicológico ou físico pelo trabalho",
+    id: "hora_extra",
+    label: "02. Hora extra não paga / Banco de horas ilegal",
+    sub: "Jornadas além do limite legal sem o devido pagamento em holerite",
   },
   {
-    id: "rescisao_justacausa",
-    label: "Rescisão Incorreta ou Demissão Injusta",
-    sub: "Valores não pagos, FGTS não recolhido ou justa causa aplicada de forma arbitrária",
+    id: "sem_registro",
+    label: "03. Trabalho sem carteira assinada",
+    sub: "Cumprimento de ordens e horários sem anotação formal na CTPS",
   },
   {
-    id: "equiparacao",
-    label: "Equiparação Salarial ou Desvio de Função",
-    sub: "Exercendo as mesmas funções que outros colegas mas recebendo remuneração menor",
+    id: "justa_causa",
+    label: "04. Justa causa injusta ou arbitrária",
+    sub: "Aplicação indevida sem prova de falta grave para privar você das verbas",
+  },
+  {
+    id: "assedio_moral",
+    label: "05. Assédio moral, humilhação e metas abusivas",
+    sub: "Pressões desmedidas, ameaças veladas, isolamento ou perseguição interna",
+  },
+  {
+    id: "doenca_trabalho",
+    label: "06. Doença Ocupacional, Burnout ou Acidente",
+    sub: "Esgotamento emocional, LER/DORT, depressão ou sequelas físicas causadas pelo serviço",
+  },
+  {
+    id: "fgts_atrasado",
+    label: "07. FGTS não depositado pela empresa",
+    sub: "Falta de depósitos mensais obrigatórios na conta vinculada da Caixa",
+  },
+  {
+    id: "risco_adicional",
+    label: "08. Risco ou insalubridade sem adicional",
+    sub: "Exposição a agentes nocivos, ruído, perigo ou moto sem o adicional de lei",
+  },
+  {
+    id: "salario_atrasado",
+    label: "09. Salário atrasado / Descumprimento de contrato",
+    sub: "Atrasos reiterados que ensejam o pedido de rescisão indireta",
+  },
+  {
+    id: "cargo_confianca",
+    label: "10. Falso Cargo de Confiança / 7ª e 8ª horas bancárias",
+    sub: "Cargo formal de gerência/coordenação sem poder de mando real",
+  },
+  {
+    id: "outra_situacao",
+    label: "É outra situação específica",
+    sub: "Explicar meu caso diretamente para o Dr. Marcelo Corrêa",
+    isCustom: true,
   },
 ];
 
+// Momentos contratuais: NUNCA indicam que o usuário não tem direito
 const TIMINGS: Option[] = [
   {
     id: "trabalhando",
     label: "Ainda trabalho na empresa",
-    sub: "Orientação 100% discreta e sigilosa. Nada chega ao conhecimento do empregador",
+    sub: "Orientação 100% sigilosa. Nada chega ao conhecimento do empregador",
   },
   {
     id: "menos_2_anos",
     label: "Fui desligado há menos de 2 anos",
-    sub: "Período ideal e seguro para pleitear direitos retroativos dos últimos 5 anos",
+    sub: "Período ideal para pleitear direitos retroativos dos últimos 5 anos",
   },
   {
     id: "mais_2_anos",
     label: "Fui desligado há mais de 2 anos",
-    sub: "Análise técnica de possíveis suspensões de prazo prescricional",
+    sub: "Caso especial: existem hipóteses legais que suspendem ou interrompem o prazo",
+  },
+  {
+    id: "outro_momento",
+    label: "Outra condição contratual",
+    sub: "Avaliar prazos e condições diretamente com o advogado",
+    isCustom: true,
   },
 ];
 
@@ -84,17 +135,17 @@ export function LeadQualifier() {
     <section id="orientacao" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       <div className="rounded-3xl p-6 sm:p-10 card-elevated shadow-xl transition-all">
         
-        {/* Header da Seção de Diagnóstico */}
+        {/* Header da Seção */}
         <div className="text-center max-w-xl mx-auto mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs text-[#a37a44] dark:text-[#dfcaa8] font-bold uppercase tracking-wider mb-2.5">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs text-[#a37a44] dark:text-[#dfcaa8] font-bold uppercase tracking-wider mb-2.5">
             <HeartHandshake className="w-3.5 h-3.5" />
             <span>Diagnóstico Preliminar em 3 Passos</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">
-            Descubra em segundos se você tem direitos a receber.
+            Selecione o seu caso para orientação sob medida.
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2">
-            Disposição vertical rápida: selecione sua opção e receba a orientação no WhatsApp.
+            Disposição vertical rápida: escolha as opções e receba a orientação no WhatsApp.
           </p>
         </div>
 
@@ -121,7 +172,7 @@ export function LeadQualifier() {
           ))}
         </div>
 
-        {/* ETAPA 1 - DISPOSIÇÃO VERTICAL FLUÍDA */}
+        {/* ETAPA 1 - CATEGORIA */}
         {step === 1 && (
           <div className="space-y-3 animate-fade-in max-w-2xl mx-auto">
             <h3 className="text-base font-bold text-slate-900 dark:text-white text-center mb-3">
@@ -132,7 +183,11 @@ export function LeadQualifier() {
                 <button
                   key={cat.id}
                   onClick={() => handleSelect("category", cat.label, 2)}
-                  className="p-4 rounded-xl text-left bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-[#a37a44] dark:hover:border-[#c5a880] hover:bg-white dark:hover:bg-slate-900 transition-all group cursor-pointer"
+                  className={`p-4 rounded-xl text-left border transition-all group cursor-pointer ${
+                    cat.isCustom
+                      ? "bg-amber-50/60 dark:bg-amber-950/20 border-amber-300 dark:border-amber-800/60 hover:border-[#a37a44]"
+                      : "bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 hover:border-[#a37a44] dark:hover:border-[#c5a880] hover:bg-white dark:hover:bg-slate-900"
+                  }`}
                 >
                   <p className="font-bold text-slate-900 dark:text-white group-hover:text-[#a37a44] dark:group-hover:text-[#dfcaa8] flex items-center justify-between text-sm sm:text-base">
                     <span>{cat.label}</span>
@@ -145,7 +200,7 @@ export function LeadQualifier() {
           </div>
         )}
 
-        {/* ETAPA 2 */}
+        {/* ETAPA 2 - 9 CASOS ESTRATÉGICOS + OPÇÃO ABERTA */}
         {step === 2 && (
           <div className="space-y-3 animate-fade-in max-w-2xl mx-auto">
             <div className="flex items-center justify-between mb-2">
@@ -156,20 +211,24 @@ export function LeadQualifier() {
                 ← Voltar
               </button>
               <h3 className="text-base font-bold text-slate-900 dark:text-white text-center">
-                2. Qual situação você mais enfrenta?
+                2. Qual situação melhor descreve o que você enfrentou?
               </h3>
               <div className="w-8" />
             </div>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-2 max-h-[460px] overflow-y-auto pr-1">
               {SITUATIONS.map((sit) => (
                 <button
                   key={sit.id}
                   onClick={() => handleSelect("situation", sit.label, 3)}
-                  className="p-4 rounded-xl text-left bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-[#a37a44] dark:hover:border-[#c5a880] hover:bg-white dark:hover:bg-slate-900 transition-all group cursor-pointer"
+                  className={`p-3.5 sm:p-4 rounded-xl text-left border transition-all group cursor-pointer ${
+                    sit.isCustom
+                      ? "bg-amber-50/60 dark:bg-amber-950/20 border-amber-300 dark:border-amber-800/60 hover:border-[#a37a44]"
+                      : "bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 hover:border-[#a37a44] dark:hover:border-[#c5a880] hover:bg-white dark:hover:bg-slate-900"
+                  }`}
                 >
-                  <p className="font-bold text-slate-900 dark:text-white group-hover:text-[#a37a44] dark:group-hover:text-[#dfcaa8] flex items-center justify-between text-sm sm:text-base">
+                  <p className="font-bold text-slate-900 dark:text-white group-hover:text-[#a37a44] dark:group-hover:text-[#dfcaa8] flex items-center justify-between text-sm">
                     <span>{sit.label}</span>
-                    <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#a37a44] dark:group-hover:text-[#dfcaa8] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#a37a44] dark:group-hover:text-[#dfcaa8] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
                   </p>
                   <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">{sit.sub}</p>
                 </button>
@@ -178,7 +237,7 @@ export function LeadQualifier() {
           </div>
         )}
 
-        {/* ETAPA 3 */}
+        {/* ETAPA 3 - CONDIÇÃO CONTRATUAL ACOLHEDORA */}
         {step === 3 && (
           <div className="space-y-3 animate-fade-in max-w-2xl mx-auto">
             <div className="flex items-center justify-between mb-2">
@@ -189,7 +248,7 @@ export function LeadQualifier() {
                 ← Voltar
               </button>
               <h3 className="text-base font-bold text-slate-900 dark:text-white text-center">
-                3. Qual o seu vínculo atual?
+                3. Qual o seu vínculo atual com a empresa?
               </h3>
               <div className="w-8" />
             </div>
@@ -198,7 +257,11 @@ export function LeadQualifier() {
                 <button
                   key={tim.id}
                   onClick={() => handleSelect("timing", tim.label, 4)}
-                  className="p-4 rounded-xl text-left bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-[#a37a44] dark:hover:border-[#c5a880] hover:bg-white dark:hover:bg-slate-900 transition-all group cursor-pointer"
+                  className={`p-4 rounded-xl text-left border transition-all group cursor-pointer ${
+                    tim.isCustom
+                      ? "bg-amber-50/60 dark:bg-amber-950/20 border-amber-300 dark:border-amber-800/60 hover:border-[#a37a44]"
+                      : "bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 hover:border-[#a37a44] dark:hover:border-[#c5a880] hover:bg-white dark:hover:bg-slate-900"
+                  }`}
                 >
                   <p className="font-bold text-slate-900 dark:text-white group-hover:text-[#a37a44] dark:group-hover:text-[#dfcaa8] flex items-center justify-between text-sm sm:text-base">
                     <span>{tim.label}</span>
@@ -211,20 +274,23 @@ export function LeadQualifier() {
           </div>
         )}
 
-        {/* ETAPA 4: Conversão Imediata */}
+        {/* ETAPA 4 - CONCLUSÃO ACOLHEDORA */}
         {step === 4 && (
           <div className="text-center py-2 space-y-4 animate-fade-in max-w-md mx-auto">
             <div className="inline-flex p-3 rounded-full bg-[#25D366]/15 text-[#25D366]">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-              Pronto para a avaliação sigilosa!
+              Seu panorama está organizado!
             </h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400">
+              O Dr. Marcelo avaliará seu caso pessoalmente para apontar os caminhos e direitos aplicáveis.
+            </p>
 
             <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 text-left text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-1.5">
               <p><strong>Área:</strong> {answers.category}</p>
               <p><strong>Situação:</strong> {answers.situation}</p>
-              <p><strong>Momento:</strong> {answers.timing}</p>
+              <p><strong>Vínculo:</strong> {answers.timing}</p>
             </div>
 
             <p className="text-xs text-slate-500 flex items-center justify-center gap-1.5">
@@ -239,7 +305,7 @@ export function LeadQualifier() {
               className="inline-flex items-center justify-center gap-2.5 w-full py-4 rounded-xl bg-[#25D366] text-white font-bold text-sm sm:text-base shadow-xl hover:bg-[#20ba59] active:scale-98 transition-all whatsapp-glow"
             >
               <MessageCircle className="w-5 h-5" />
-              <span>Enviar Diagnóstico para Dr. Marcelo</span>
+              <span>Falar com o Dr. Marcelo no WhatsApp</span>
             </a>
 
             <div>
