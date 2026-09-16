@@ -27,7 +27,13 @@ export function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-md transition-all duration-300">
+    <header
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white border-b border-gray-200 shadow-md"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* LOGO OFICIAL - IMAGEM PRESERVADA */}
@@ -49,13 +55,11 @@ export function Header() {
         </Link>
 
         {/* NAVEGAÇÃO: PADRÃO, COMPLETA E COM SUBMENUS — TEXTO SEMPRE ESCURO */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs sm:text-sm font-semibold text-slate-800">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs sm:text-sm font-semibold text-slate-900">
           {/* Item 1: O Escritório com Submenu incluindo Dr. Marcelo */}
           <div className="relative group py-2">
             <button
-              className={`flex items-center gap-1 focus:outline-none cursor-pointer ${
-                isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"
-              }`}
+              className="flex items-center gap-1 focus:outline-none cursor-pointer hover:text-[#a37a44] transition-colors"
             >
               <span>O Escritório</span>
               <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
