@@ -3,7 +3,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function DeadlineAlert() {
   return (
-    <section className="py-16 bg-white dark:bg-[#07080b] border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <section id="prazo" className="py-16 bg-white dark:bg-[#07080b] border-b border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Card de Urgência Ética e Jurídica */}

@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80 pt-24 pb-14 sm:py-28">
       
-      {/* Imagem de Fundo Abrangendo Toda a Tela */}
+      {/* Imagem de Fundo Abrangendo Toda a Tela por Inteiro */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <picture className="w-full h-full block">
           <source media="(max-width: 767px)" srcSet="/images/headermobile.jpeg" />
@@ -19,16 +19,16 @@ export function Hero() {
             priority
             quality={100}
             sizes="100vw"
-            className="object-cover object-[75%_top] sm:object-[right_center]"
+            className="object-cover object-[75%_top] sm:object-center"
           />
         </picture>
 
         {/* 
-          Degradê suave e integrado à foto:
-          - No Mobile: sombra na base para leitura dos botões e textos
-          - No Desktop: gradiente da esquerda (branco / suave) para destacar o conteúdo sem cobrir o advogado à direita
+          Overlay suave apenas para garantir leitura dos textos sem tapar ou criar faixas brancas na imagem:
+          - No Mobile: sombra sutil na base
+          - No Desktop: gradiente lateral suave translúcido
         */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/90 sm:to-transparent sm:dark:from-[#07080b] sm:dark:via-[#07080b]/90 sm:dark:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent sm:bg-gradient-to-r sm:from-white/70 sm:via-white/30 sm:to-transparent sm:dark:from-[#07080b]/80 sm:dark:via-[#07080b]/40 sm:dark:to-transparent" />
       </div>
 
       {/* 

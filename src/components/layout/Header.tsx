@@ -62,13 +62,37 @@ export function Header() {
               : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           }`}
         >
-          {/* Item 1: O Escritório */}
-          <Link
-            href="/#escritorio"
-            className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
-          >
-            O Escritório
-          </Link>
+          {/* Item 1: O Escritório com Submenu incluindo Dr. Marcelo */}
+          <div className="relative group py-2">
+            <button
+              className={`flex items-center gap-1 focus:outline-none cursor-pointer ${
+                isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"
+              }`}
+            >
+              <span>O Escritório</span>
+              <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
+            </button>
+
+            {/* Dropdown Menu Escritório */}
+            <div className="absolute top-full left-0 w-64 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+              <div className="bg-white rounded-2xl p-2.5 shadow-2xl border border-gray-100 text-slate-800 space-y-1">
+                <Link
+                  href="/#escritorio"
+                  className="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-amber-50 hover:text-[#a37a44] transition-colors"
+                >
+                  <span className="font-bold block text-slate-900">Sobre o Escritório</span>
+                  <span className="text-[11px] text-slate-500">12 anos de história e sede no Batel</span>
+                </Link>
+                <Link
+                  href="/#advogado"
+                  className="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-amber-50 hover:text-[#a37a44] transition-colors"
+                >
+                  <span className="font-bold block text-slate-900">Dr. Marcelo Miguel Corrêa Junior</span>
+                  <span className="text-[11px] text-slate-500">Advogado titular e sócio-fundador</span>
+                </Link>
+              </div>
+            </div>
+          </div>
 
           {/* Item 2: Casos e Direitos com Submenu */}
           <div className="relative group py-2">
@@ -81,7 +105,7 @@ export function Header() {
               <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
             </button>
 
-            {/* Dropdown Menu */}
+            {/* Dropdown Menu Seus Direitos */}
             <div className="absolute top-full left-0 w-64 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
               <div className="bg-white rounded-2xl p-2.5 shadow-2xl border border-gray-100 text-slate-800 space-y-1">
                 <Link
@@ -99,6 +123,13 @@ export function Header() {
                   <span className="text-[11px] text-slate-500">10 verbas além da rescisão simples</span>
                 </Link>
                 <Link
+                  href="/#prazo"
+                  className="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-amber-50 hover:text-[#a37a44] transition-colors"
+                >
+                  <span className="font-bold block text-slate-900">Atenção ao Prazo</span>
+                  <span className="text-[11px] text-slate-500">2 anos para agir (Art. 7º da CF)</span>
+                </Link>
+                <Link
                   href="/#como-funciona"
                   className="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-amber-50 hover:text-[#a37a44] transition-colors"
                 >
@@ -109,9 +140,9 @@ export function Header() {
             </div>
           </div>
 
-          {/* Item 3: Avaliações */}
+          {/* Item 3: Avaliações (Apontando diretamente para #avaliacoes) */}
           <Link
-            href="/#depoimentos"
+            href="/#avaliacoes"
             className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
           >
             Avaliações
@@ -125,12 +156,12 @@ export function Header() {
             Dúvidas
           </Link>
 
-          {/* Item 5: Diagnóstico / Avaliar Caso */}
+          {/* Item 5: Faça seu Diagnóstico */}
           <Link
             href="/#orientacao"
             className={isScrolled ? "text-[#a37a44] hover:opacity-80 transition-opacity" : "text-[#dfcaa8] hover:text-white transition-colors"}
           >
-            Avaliar Caso
+            Faça seu Diagnóstico
           </Link>
 
           {/* Item 6: Contato & Sede */}
@@ -194,6 +225,13 @@ export function Header() {
             O Escritório
           </Link>
           <Link
+            href="/#advogado"
+            onClick={() => setIsOpen(false)}
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
+          >
+            Dr. Marcelo Miguel Corrêa Junior
+          </Link>
+          <Link
             href="/#especialidades"
             onClick={() => setIsOpen(false)}
             className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
@@ -208,6 +246,13 @@ export function Header() {
             O Que Pode Ser Cobrado
           </Link>
           <Link
+            href="/#prazo"
+            onClick={() => setIsOpen(false)}
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
+          >
+            Atenção ao Prazo (2 Anos)
+          </Link>
+          <Link
             href="/#como-funciona"
             onClick={() => setIsOpen(false)}
             className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
@@ -215,7 +260,7 @@ export function Header() {
             Como Funciona na Prática
           </Link>
           <Link
-            href="/#depoimentos"
+            href="/#avaliacoes"
             onClick={() => setIsOpen(false)}
             className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
           >
@@ -233,7 +278,7 @@ export function Header() {
             onClick={() => setIsOpen(false)}
             className="block text-sm font-semibold text-[#a37a44]"
           >
-            Diagnóstico Preliminar
+            Faça seu Diagnóstico
           </Link>
           <Link
             href="/#contato"
