@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle, Menu, X } from "lucide-react";
+import { MessageCircle, Menu, X, ChevronDown } from "lucide-react";
 import { company } from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -54,32 +54,86 @@ export function Header() {
           </div>
         </Link>
 
-        {/* NAVEGAÇÃO: CORRIGIDA PARA MODO ROLADO COM FUNDO BRANCO E TOPO SOBRE A FOTO */}
+        {/* NAVEGAÇÃO: PADRÃO, COMPLETA E COM SUBMENUS */}
         <nav
-          className={`hidden md:flex items-center gap-8 text-xs sm:text-sm font-semibold transition-colors ${
+          className={`hidden md:flex items-center gap-6 lg:gap-8 text-xs sm:text-sm font-semibold transition-colors ${
             isScrolled
               ? "text-slate-800"
               : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           }`}
         >
+          {/* Item 1: O Escritório */}
           <Link
             href="/#escritorio"
             className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
           >
             O Escritório
           </Link>
+
+          {/* Item 2: Casos e Direitos com Submenu */}
+          <div className="relative group py-2">
+            <button
+              className={`flex items-center gap-1 focus:outline-none cursor-pointer ${
+                isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"
+              }`}
+            >
+              <span>Seus Direitos</span>
+              <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
+            </button>
+
+            {/* Dropdown Menu */}
+            <div className="absolute top-full left-0 w-64 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+              <div className="bg-white rounded-2xl p-2.5 shadow-2xl border border-gray-100 text-slate-800 space-y-1">
+                <Link
+                  href="/#especialidades"
+                  className="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-amber-50 hover:text-[#a37a44] transition-colors"
+                >
+                  <span className="font-bold block text-slate-900">Casos Estratégicos</span>
+                  <span className="text-[11px] text-slate-500">Horas extras, Burnout, cargos de confiança</span>
+                </Link>
+                <Link
+                  href="/#o-que-cobrar"
+                  className="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-amber-50 hover:text-[#a37a44] transition-colors"
+                >
+                  <span className="font-bold block text-slate-900">O Que Pode Ser Cobrado</span>
+                  <span className="text-[11px] text-slate-500">10 verbas além da rescisão simples</span>
+                </Link>
+                <Link
+                  href="/#como-funciona"
+                  className="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-amber-50 hover:text-[#a37a44] transition-colors"
+                >
+                  <span className="font-bold block text-slate-900">Como Funciona o Processo</span>
+                  <span className="text-[11px] text-slate-500">Do primeiro contato até a sentença</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Item 3: Avaliações */}
           <Link
-            href="/#especialidades"
+            href="/#depoimentos"
             className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
           >
-            Atuação
+            Avaliações
           </Link>
+
+          {/* Item 4: Dúvidas (FAQ) */}
+          <Link
+            href="/#faq"
+            className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
+          >
+            Dúvidas
+          </Link>
+
+          {/* Item 5: Diagnóstico / Avaliar Caso */}
           <Link
             href="/#orientacao"
             className={isScrolled ? "text-[#a37a44] hover:opacity-80 transition-opacity" : "text-[#dfcaa8] hover:text-white transition-colors"}
           >
-            Orientação Confidencial
+            Avaliar Caso
           </Link>
+
+          {/* Item 6: Contato & Sede */}
           <Link
             href="/#contato"
             className={isScrolled ? "hover:text-[#a37a44] transition-colors" : "hover:text-[#dfcaa8] transition-colors"}
@@ -129,7 +183,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* MENU MOBILE EXPANDIDO - FUNDO BRANCO FIXO */}
+      {/* MENU MOBILE EXPANDIDO - FUNDO BRANCO FIXO COM TODAS AS SEÇÕES */}
       {isOpen && (
         <div className="md:hidden bg-white border-b border-gray-200 px-6 py-6 space-y-4 animate-fade-in shadow-2xl">
           <Link
@@ -144,31 +198,61 @@ export function Header() {
             onClick={() => setIsOpen(false)}
             className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
           >
-            Atuação
+            Casos Estratégicos
+          </Link>
+          <Link
+            href="/#o-que-cobrar"
+            onClick={() => setIsOpen(false)}
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
+          >
+            O Que Pode Ser Cobrado
+          </Link>
+          <Link
+            href="/#como-funciona"
+            onClick={() => setIsOpen(false)}
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
+          >
+            Como Funciona na Prática
+          </Link>
+          <Link
+            href="/#depoimentos"
+            onClick={() => setIsOpen(false)}
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
+          >
+            Avaliações de Clientes
+          </Link>
+          <Link
+            href="/#faq"
+            onClick={() => setIsOpen(false)}
+            className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
+          >
+            Dúvidas Frequentes
           </Link>
           <Link
             href="/#orientacao"
             onClick={() => setIsOpen(false)}
             className="block text-sm font-semibold text-[#a37a44]"
           >
-            Orientação Confidencial
+            Diagnóstico Preliminar
           </Link>
           <Link
             href="/#contato"
             onClick={() => setIsOpen(false)}
             className="block text-sm font-semibold text-slate-800 hover:text-[#a37a44]"
           >
-            Contato
+            Contato e Localização
           </Link>
-          <div className="pt-2">
+
+          <div className="pt-3 border-t border-gray-100">
             <a
               href={buildWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-sm shadow-lg"
+              onClick={() => setIsOpen(false)}
+              className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white font-bold text-sm shadow-md"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>Falar com Dr. Marcelo</span>
+              <span>Avaliar Meu Caso no WhatsApp</span>
             </a>
           </div>
         </div>

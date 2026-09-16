@@ -70,7 +70,7 @@ const RECOVERY_ITEMS = [
 
 export function WhatCanBeClaimed() {
   return (
-    <section className="py-20 bg-slate-50 dark:bg-[#07080b] border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <section id="o-que-cobrar" className="py-20 bg-slate-50 dark:bg-[#07080b] border-b border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Cabeçalho de Curiosidade e Quebra de Objeção */}

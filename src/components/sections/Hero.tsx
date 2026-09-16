@@ -10,10 +10,10 @@ export function Hero() {
       {/* Imagem de Fundo 100% Nítida Abrangendo Toda a Tela */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <picture className="w-full h-full block">
-          <source media="(max-width: 767px)" srcSet="/images/header-mobile.jpeg" />
-          <source media="(min-width: 768px)" srcSet="/images/header-desktop.jpeg" />
+          <source media="(max-width: 767px)" srcSet="/images/headermobile.jpeg" />
+          <source media="(min-width: 768px)" srcSet="/images/headerdesktop.jpeg" />
           <Image
-            src="/images/header-desktop.jpeg"
+            src="/images/headerdesktop.jpeg"
             alt="Dr. Marcelo Miguel Corrêa Junior - Advogado Trabalhista"
             fill
             priority

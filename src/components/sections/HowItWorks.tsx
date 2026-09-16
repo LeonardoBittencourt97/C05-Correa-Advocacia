@@ -30,7 +30,7 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section className="py-20 bg-slate-50 dark:bg-[#07080b] border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <section id="como-funciona" className="py-20 bg-slate-50 dark:bg-[#07080b] border-b border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Cabeçalho */}
