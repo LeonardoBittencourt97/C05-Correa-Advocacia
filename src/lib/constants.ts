@@ -131,29 +131,34 @@ export const workflowSteps = [
 
 export const faqs = [
   {
-    question: "A empresa onde ainda trabalho vai saber que consultei um advogado?",
+    question: "Preciso pagar alguma coisa para entrar com o processo?",
     answer:
-      "Não. O sigilo entre advogado e cliente é protegido por lei (Art. 7º, XIX do Estatuto da Advocacia). Nossa análise inicial é totalmente confidencial, sem nenhum contato com o seu empregador atual.",
+      "Na Justiça do Trabalho, quem entra com a ação em regra não paga custas judiciais para começar. Os honorários do advogado são combinados com você antes de qualquer passo, de forma transparente e por escrito, e você só assina se concordar. Nada é cobrado por surpresa.",
   },
   {
-    question: "Qual é o prazo legal para entrar com uma ação trabalhista?",
+    question: "Dá para saber logo de cara quanto eu tenho a receber?",
     answer:
-      "Pela CLT e Constituição, o trabalhador tem até 2 (dois) anos após a extinção do contrato de trabalho para propor a ação, podendo cobrar os direitos sonegados dos últimos 5 (cinco) anos contados da data de distribuição do processo.",
+      "O valor exato depende dos documentos, dos cálculos de reflexos e das provas do processo, por isso não sai de uma primeira conversa informal. O que o primeiro atendimento entrega é a leitura estratégica do seu caso: o que a empresa deixou de pagar, o que dá para provar e qual o caminho viável. O cálculo detalhado faz parte do trabalho e é combinado junto com os honorários, por escrito, antes de começar.",
   },
   {
-    question: "Como funciona o atendimento para quem não reside em Curitiba?",
+    question: "Vou ter que ir à Justiça e encarar meu ex-patrão?",
     answer:
-      "Nosso escritório realiza atendimentos 100% digitais com plena validade jurídica em todo o Brasil. As reuniões acontecem via videoconferência segura, e os documentos são enviados e assinados digitalmente com comodidade.",
+      "Boa parte dos casos termina em acordo vantajoso, sem que você precise depor. Quando há audiência de instrução, você vai 100% acompanhado pelo Dr. Marcelo e preparado com antecedência sobre cada ponto que será tratado. Além disso, a grande maioria das audiências hoje é realizada de forma on-line, por vídeo, sem qualquer constrangimento.",
   },
   {
-    question: "Sou bancário e recebo gratificação de função. Tenho direito a 7ª e 8ª horas?",
+    question: "Ainda trabalho na empresa. Posso processar sem ser demitido?",
     answer:
-      "Se você não possui poder de mando, gestão real, equipe subordinada com poder de punição/admissão ou procuração do banco com amplos poderes, o enquadramento no art. 224, § 2º da CLT é frequentemente fraudulento. Nesses casos, a jornada legal é de 6 horas, e você tem direito a receber as horas excedentes como extras com acréscimo legal.",
+      "Pode. Demitir alguém por ter buscado seus direitos trabalhistas configura retaliação e gera pesadas consequências para a empresa. Existem também remédios jurídicos como a Rescisão Indireta, aplicável quando a empresa descumpre cláusulas contratuais ou submete o empregado a condições abusivas. Nesse caso, você se desliga e recebe todas as verbas rescisórias integrais como se tivesse sido demitido sem justa causa.",
   },
   {
-    question: "Tive Síndrome de Burnout por causa de metas abusivas. Quais são os meus direitos?",
+    question: "Não tenho quase nenhum documento. Ainda dá para fazer algo?",
     answer:
-      "O Burnout é reconhecido pela OMS e pelos tribunais trabalhistas como doença ocupacional equiparada a acidente de trabalho. Você pode ter direito à estabilidade no emprego por 12 meses após a alta do INSS, indenização por danos morais, ressarcimento de despesas médicas e até pensão mensal em casos de incapacidade.",
+      "Sim. Documentos ajudam, mas não são o único meio de prova: testemunhas, mensagens de WhatsApp, e-mails, fotos, escalas de grupo, prints de sistemas e comprovantes de login servem como prova jurídica robusta. Além disso, em vários casos a legislação determina que é a própria empresa que tem a obrigação legal de apresentar os registros no processo sob pena de confissão.",
+  },
+  {
+    question: "Assinei o acerto na saída. Isso me impede de cobrar meus direitos?",
+    answer:
+      "Na maioria esmagadora das vezes, não. Assinar o Termo de Rescisão do Contrato de Trabalho (TRCT) dá quitação apenas aos valores expressamente descritos no papel, não a tudo o que aconteceu no contrato. Se as horas extras, verbas ou adicionais foram calculados a menor ou sonegados, a diferença integral continua sendo devida e pode ser cobrada na Justiça.",
   },
 ] as const;
 

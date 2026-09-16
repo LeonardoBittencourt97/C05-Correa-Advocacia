@@ -5,6 +5,9 @@ import { Hero } from "@/components/sections/Hero";
 import { BenefitsBar } from "@/components/sections/BenefitsBar";
 import { FirmSection } from "@/components/sections/FirmSection";
 import { Specialization } from "@/components/sections/Specialization";
+import { WhatCanBeClaimed } from "@/components/sections/WhatCanBeClaimed";
+import { DeadlineAlert } from "@/components/sections/DeadlineAlert";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { LeadQualifier } from "@/components/sections/LeadQualifier";
 import { FAQ } from "@/components/sections/FAQ";
@@ -24,19 +27,28 @@ export default function Home() {
         {/* 3. O Escritório (Autoridade + Logo Oficial Fundo Branco) */}
         <FirmSection />
 
-        {/* 4. Especialidades & Vantagens Práticas */}
+        {/* 4. Casos Estratégicos (9 Situações Mapeadas) */}
         <Specialization />
 
-        {/* 5. Prova Social: Carrossel de Depoimentos Reais do Google 5.0 */}
+        {/* 5. O Que Pode Ser Cobrado (10 Direitos Além da Rescisão) */}
+        <WhatCanBeClaimed />
+
+        {/* 6. Atenção ao Prazo (2 Anos Constitucionais) */}
+        <DeadlineAlert />
+
+        {/* 7. Como Funciona na Prática (4 Passos do Primeiro 'Oi' ao Fim) */}
+        <HowItWorks />
+
+        {/* 8. Prova Social: Carrossel de Depoimentos Reais do Google 5.0 */}
         <Testimonials />
 
-        {/* 6. Diagnóstico Preliminar em 3 Passos (Formulário/Oferta no WhatsApp) */}
+        {/* 9. Diagnóstico Preliminar em 3 Passos (Formulário/Oferta no WhatsApp) */}
         <LeadQualifier />
 
-        {/* 7. Dúvidas Frequentes (FAQ) */}
+        {/* 10. Dúvidas Frequentes (FAQ) */}
         <FAQ />
 
-        {/* 8. Contato & Rotas no Batel */}
+        {/* 11. Contato & Rotas no Batel */}
         <MapSection />
       </main>
       <Footer />

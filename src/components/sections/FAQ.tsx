@@ -20,19 +20,19 @@ export function FAQ() {
         <div className="text-center mb-12">
           <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#b28a55] dark:text-[#c5a880] mb-2">
             <HelpCircle className="w-4 h-4" />
-            Tire Suas Dúvidas
+            Transparência Desde o Início
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-[#f4f5f7]">
-            Dúvidas Frequentes sobre <span className="gold-gradient-text">Seus Direitos</span>
+            Dúvidas mais comuns antes de <span className="gold-gradient-text">começar</span>
           </h2>
-          <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-[#9ca3af]">
-            Respostas claras para as principais dúvidas de bancários e trabalhadores.
+          <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-[#9ca3af] max-w-2xl mx-auto">
+            O que quase todo mundo pergunta antes de iniciar a análise de seus direitos trabalhistas.
           </p>
         </div>
 
         {/* Lista de Accordions */}
         <div className="space-y-3.5">
-          {faqs.slice(0, 4).map((faq, index) => {
+          {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
