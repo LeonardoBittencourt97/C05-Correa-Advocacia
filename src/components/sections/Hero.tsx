@@ -47,7 +47,7 @@ export function Hero() {
           </h1>
 
           {/* H1 com Efeito Typewriter */}
-          <div className="pt-6 sm:pt-0">
+          <div className="pt-14 sm:pt-0">
             <TypewriterHeading />
           </div>
 
