@@ -39,12 +39,15 @@ export function Hero() {
           
           {/* H1 Institucional em Destaque */}
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-snug">
-            <span className="text-[#a37a44] block sm:inline font-black">CORRÊA ADVOCACIA • </span>
-            <span className="text-slate-900 dark:text-slate-100">Atuação trabalhista estratégica em todo o Brasil</span>
+            <span className="text-[#a37a44] font-black">CORRÊA ADVOCACIA</span>
+            <span className="hidden sm:inline">
+              <span className="text-[#a37a44] font-black"> • </span>
+              <span className="text-slate-900 dark:text-slate-100">Atuação trabalhista estratégica em todo o Brasil</span>
+            </span>
           </h1>
 
           {/* H1 com Efeito Typewriter */}
-          <div>
+          <div className="pt-6 sm:pt-0">
             <TypewriterHeading />
           </div>
 
@@ -74,7 +77,7 @@ export function Hero() {
             </a>
           </div>
 
-          <p className="text-[11px] sm:text-xs text-slate-300 sm:text-slate-500 sm:dark:text-slate-400">
+          <p className="hidden sm:block text-[11px] sm:text-xs text-slate-300 sm:text-slate-500 sm:dark:text-slate-400">
             Atendimento preliminar estritamente sigiloso e direto com o advogado.
           </p>
         </div>
