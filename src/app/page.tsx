@@ -4,6 +4,7 @@ import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { Hero } from "@/components/sections/Hero";
 import { BenefitsBar } from "@/components/sections/BenefitsBar";
 import { FirmSection } from "@/components/sections/FirmSection";
+import { LawyerSection } from "@/components/sections/LawyerSection";
 import { Specialization } from "@/components/sections/Specialization";
 import { WhatCanBeClaimed } from "@/components/sections/WhatCanBeClaimed";
 import { DeadlineAlert } from "@/components/sections/DeadlineAlert";
@@ -27,7 +28,10 @@ export default function Home() {
         {/* 3. O Escritório (Autoridade + Logo Oficial Fundo Branco) */}
         <FirmSection />
 
-        {/* 4. Casos Estratégicos (9 Situações Mapeadas) */}
+        {/* 4. O Advogado: Dr. Marcelo Miguel Corrêa Junior */}
+        <LawyerSection />
+
+        {/* 5. Casos Estratégicos (9 Situações Mapeadas) */}
         <Specialization />
 
         {/* 5. O Que Pode Ser Cobrado (10 Direitos Além da Rescisão) */}
