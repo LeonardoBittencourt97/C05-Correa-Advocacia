@@ -39,8 +39,36 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${company.name} | Advogado Trabalhista Bancário`,
     description: company.description,
+    url: "https://correaadvocacia.com.br",
+    siteName: company.name,
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/og-image_optimized_300.jpeg",
+        width: 1200,
+        height: 630,
+        alt: `${company.name} - Defesa Trabalhista Especializada`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${company.name} | Advogado Trabalhista Bancário`,
+    description: company.description,
+    images: ["/og-image_optimized_300.jpeg"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon-apple-touch-icon-180x180.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
   robots: {
     index: true,
