@@ -7,7 +7,7 @@ export const company = {
   experienceYears: 12,
   description:
     "Advocacia trabalhista especializada com atuação estratégica na defesa de bancários e trabalhadores de todo o Brasil. Foco em descaracterização de cargos de confiança, 7ª e 8ª horas, assédio moral e doenças ocupacionais.",
-  domain: "correaadvocacia.com.br",
+  domain: "correaadvocacia.adv.br",
   phone: "(41) 99947-0414",
   phoneRaw: "5541999470414",
   address: "R. Francisco Rocha, 198 - Batel, Curitiba - PR, 80420-130",

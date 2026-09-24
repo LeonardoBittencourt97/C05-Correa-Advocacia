@@ -20,7 +20,10 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://c05-correa-advocacia.pages.dev";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: `${company.name} | Marcelo Miguel Corrêa Junior - Advogado Trabalhista Bancário`,
   description:
     "Defesa estratégica e sigilosa para bancários e trabalhadores. Recupere 7ª e 8ª horas, descaracterize falsos cargos de confiança e obtenha indenização por Burnout e metas abusivas.",
@@ -35,11 +38,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: company.founder }],
   creator: company.name,
-  metadataBase: new URL("https://correaadvocacia.com.br"),
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     title: `${company.name} | Advogado Trabalhista Bancário`,
     description: company.description,
-    url: "https://correaadvocacia.com.br",
+    url: siteUrl,
     siteName: company.name,
     locale: "pt_BR",
     type: "website",
@@ -86,7 +91,7 @@ export default function RootLayout({
     "@type": "LegalService",
     name: company.name,
     description: company.description,
-    url: "https://correaadvocacia.com.br",
+    url: "https://correaadvocacia.adv.br",
     telephone: company.phone,
     address: {
       "@type": "PostalAddress",
